@@ -1,0 +1,26 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts": "tsc server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.12.13",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "global": "^4.4.0",
+    "jquery":"3.2.1",
+    "jsdom": "^16.4.0",
+    "lodash": "^4.17.20",
+    "mockjs": "^1.1.0",
+    "mongoose": "^5.9.18",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "description": "",
+  "plugins": ["@babel/plugin-proposal-decorators"]
+}

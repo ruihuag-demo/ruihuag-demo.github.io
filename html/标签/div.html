@@ -1,0 +1,76 @@
+<!--
+File: div.html
+Project: test
+Author: ruihuag
+File Created: Wednesday, 11th August 2021 1:53:46 pm
+Modified By: ruihuag
+Last Modified: Wednesday, 11th August 2021 1:57:37 pm
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	/*背景局部模糊*/
+	.bg {
+		min-height: 100vh;
+		min-width: 100vw;
+		background: url("./image/bg.jpg") no-repeat;
+		background-position: 50% 50%;
+		background-size: cover;
+		padding: 1px;
+		box-sizing: border-box;
+		z-index: 1;
+	}
+
+	.drag {
+		margin: 100px auto;
+		width: 400px;
+		height: 400px;
+		background: inherit;
+		position: relative;
+	}
+
+	.drag>div {
+		text-align: center;
+		line-height: 200px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 11;
+	}
+
+	.drag:after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: inherit;
+		filter: blur(15px);
+		z-index: 2;
+	}
+</style>
+
+<body>
+	<div class="bg">
+		<div class="drag">
+			<div>like window</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

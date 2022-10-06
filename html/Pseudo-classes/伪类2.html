@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css">
+	<title>伪类</title>
+</head>
+
+<style>
+	/* input:optional {
+  	border: 1px dashed black;
+	} */
+</style>
+
+<body>
+	<!-- <input/>	 -->
+
+	<div id="context">
+		<div id="element-1">
+			<div id="element-1.1"></div>
+			<div id="element-1.2"></div>
+		</div>
+		<div id="element-2">
+			<div id="element-2.1"></div>
+		</div>
+	</div>
+	<p>
+		Selected elements ids :
+		<span id="results"></span>
+	</p>
+
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+	<script>
+		var context = document.getElementById('context');
+		var selected = context.querySelectorAll(':scope > div');
+
+		document.getElementById('results').innerHTML = Array.prototype.map.call(selected, function (element) {
+			return '#' + element.getAttribute('id');
+		}).join(', ');
+	</script>
+</body>
+
+</html>

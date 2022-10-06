@@ -1,0 +1,39 @@
+<g xmlns="http://www.w3.org/2000/svg" id="admin0">
+
+	<path fill="#CEE3F5" stroke="#6E6E6E" stroke-width="0.4" id="FO" d="M321.9,80.0 L322.8,80.8 L322.8,81.1 L321.8,80.4 Z">
+		<desc xmlns="http://www.highcharts.com/svg/namespace">
+			<name>Faroe Islands</name>
+			<labelrank>6</labelrank>
+			<country-abbrev>Faeroe Is.</country-abbrev>
+			<subregion>Northern Europe</subregion>
+			<region-wb>Europe &amp; Central Asia</region-wb>
+			<iso-a3>FRO</iso-a3>
+			<iso-a2>FO</iso-a2>
+			<woe-id>23424816</woe-id>
+			<continent>Europe</continent>
+			<hc-middle-x>0.48</hc-middle-x>
+			<hc-middle-y>0.54</hc-middle-y>
+			<hc-key>fo</hc-key>
+			<hc-a2>FO</hc-a2>
+		</desc>
+	</path>
+
+	<path fill="#CEE3F5" stroke="#6E6E6E" stroke-width="0.4" id="UM" d="M25.4,206.4 L25.4,206.4 L25.3,206.4 L25.4,206.4 Z">
+		<desc xmlns="http://www.highcharts.com/svg/namespace">
+			<name>United States Minor Outlying Islands</name>
+			<labelrank>5</labelrank>
+			<country-abbrev>U.S. MOI</country-abbrev>
+			<subregion>Seven seas (open ocean)</subregion>
+			<region-wb>East Asia &amp; Pacific</region-wb>
+			<iso-a3>UMI</iso-a3>
+			<iso-a2>UM</iso-a2>
+			<woe-id>28289407</woe-id>
+			<continent>North America</continent>
+			<hc-middle-x>0.57</hc-middle-x>
+			<hc-middle-y>0.58</hc-middle-y>
+			<hc-key>um</hc-key>
+			<hc-a2>UM</hc-a2>
+		</desc>
+	</path>
+
+</g>

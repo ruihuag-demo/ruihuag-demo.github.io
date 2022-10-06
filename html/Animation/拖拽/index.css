@@ -1,0 +1,67 @@
+:root {
+  --tp-w: 300px;
+  --item-w: 200px;
+  --item-h: 100px;
+  --item-label-w: 20px;
+  --item-input-w: 80px;
+}
+
+body,
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#content {
+  overflow-y: hidden;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  justify-content: start;
+}
+
+#content>div {
+  padding: 10px
+}
+
+#content>#template {
+  border: none;
+  border-right: 1px solid thistle;
+  min-height: 100vh;
+  width: var(--tp-w);
+  display: flex;
+  justify-content: center;
+}
+
+#content>#target {
+  /* min-height: 100vh; */
+}
+
+
+.tp {
+  position: absolute;
+  width: var(--item-w);
+  height: var(--item-h);
+  background-color: beige;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  z-index: 1000;
+}
+
+.tp .main {
+  z-index: 2000;
+}
+
+.tp label {
+  width: var(--item-label-w);
+}
+
+.tp input {
+  width: var(--item-input-w);
+}

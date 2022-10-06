@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			height: 100vh;
+		}
+
+		video {
+			position: fixed;
+			z-index: -10;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		#canvas {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			box-shadow: 0 0 10px rgb(150, 150, 150);
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <video src="video/rain.mp4" muted autoplay loop></video> -->
+	<canvas id="canvas"></canvas>
+	<script>
+		var canvas = document.querySelector("#canvas");
+		var ctx = canvas.getContext('2d');
+
+		//画布宽 
+		var wide = 600;
+		//画布高
+		var high = 600;
+		// 变量，判断一次渲染中只识别按键一次
+		var kd = 0;
+		//当前分数
+		var fraction = 0;
+		//速度，就是执行定时器的时间参数
+		var speed = 250;
+		// 蛇的初始颜色 红色
+		var yanse = `red`;
+		// 蛇数组，组成蛇的每一个方块
+		var snake = [];
+		// 食物数组
+		var food = {};
+		// 蛇的移动方向，x轴：1为向右，-1为向左；y轴：1为向下，-1为向上 。不能斜着走，所以0为某轴无方向。
+		var diretion = {
+			x: -1,
+			y: 0
+		}
+		// 给画布宽高赋值 打算画一个长宽都是30个20px的方块画布
+		canvas.width = wide;
+		canvas.height = high;
+
+		function chushi() {
+			//蛇初始长度为3个方块，每个位置如下（这个随意）
+			for (let i = 0; i < 3; i++) {
+				snake.push({
+					x: i + 10,
+					y: 10
+				})
+			}
+			// 给食物一个随机位置和随机颜色
+			food = {
+				x: parseInt(Math.random() * 30),
+				y: parseInt(Math.random() * 30),
+				color: `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`
+			}
+		}
+
+		// 绘制图形
+		function draw() {
+			// 绘制显示当前分数的文字
+			ctx.fillStyle = 'rgba(255,255,255,0.5)';
+			ctx.font = "50px 仿宋";
+			ctx.textAlign = 'center';
+			ctx.fillText("你的分数为：" + fraction + " 分", 300, 300);
+
+			// 绘制方格，长宽都是30个，都是19px*19px的方格   
+			for (let i = 0; i < 30; i++) {
+				for (let j = 0; j < 30; j++) {
+					ctx.fillStyle = 'rgba(255, 255, 255,.3)';
+					ctx.fillRect(i * 20, j * 20, 19, 19);
+				}
+			}
+			// 绘制蛇
+			for (let i = 0; i < snake.length; i++) {
+				temp = snake[i];
+				ctx.fillStyle = yanse;
+				ctx.fillRect(temp.x * 20, temp.y * 20, 19, 19);
+				// 判断蛇头（第一个方块）是否与身体某个方块重合 ，就是头撞到身体
+				if (temp.x == snake[0].x && temp.y == snake[0].y && i != 0) {
+					// 游戏结束，重新给初始化
+					alert('游戏结束~点击确认再来一次~');
+					fraction = 0;
+					snake.length = 0;
+					chushi();
+
+				}
+			}
+			// 绘制食物，绘制一个圆形
+			ctx.beginPath();
+			ctx.fillStyle = food.color;
+			ctx.arc(food.x * 20 + 9.5, food.y * 20 + 9.5, 7, 0, Math.PI * 2, false);
+			ctx.stroke();
+			ctx.fill();
+			ctx.closePath();
+
+
+			/* var img = new Image();
+			img.src = "img/snake/orange.png";
+			img.onload = function(){
+			    ctx.drawImage(img,food.x*20,food.y*20,19,19);
+			}  */
+
+			// 给蛇头绘制一个字符，☆ ，好区分头尾 ，也可省略
+			ctx.fillStyle = 'yellow';
+			ctx.font = "15px 仿宋";
+			ctx.textAlign = "start";
+			ctx.fillText("☆", snake[0].x * 20 + 2, snake[0].y * 20 + 14.5);
+
+
+
+		}
+
+		//更新
+		function update() {
+			// 建一个对象head，这个为蛇的新头，通过绘制新头，去掉尾部实现移动效果
+			var head = {};
+			//判断蛇头是否遇到边界，到边界则在另一边重新绘制 x轴
+			switch (snake[0].x + diretion.x) {
+				case -1:
+					head.x = 29;
+					break;
+				case 30:
+					head.x = 0;
+					break;
+					// 没到边界则为当前位置加方向
+				default:
+					head.x = snake[0].x + diretion.x;
+			}
+			//判断蛇头是否遇到边界，到边界则在另一边重新绘制 y轴
+			switch (snake[0].y + diretion.y) {
+				case -1:
+					head.y = 29;
+					break;
+				case 30:
+					head.y = 0;
+					break;
+					// 没到边界则为当前位置加方向
+				default:
+					head.y = snake[0].y + diretion.y;
+			}
+			// 判断新蛇头是否与食物重合，就是吃到食物
+			if (head.x == food.x && head.y == food.y) {
+				//蛇的颜色为吃到食物的颜色
+				yanse = food.color;
+				// 重新给食物初始化
+				food = {
+					x: parseInt(Math.random() * 30),
+					y: parseInt(Math.random() * 30),
+					color: `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`
+				}
+				//在蛇尾添加一节
+				let temp = snake[length - 1];
+				snake.push(temp);
+				fraction += 1;
+				// 吃完食物速度加快
+				if (speed > 80) {
+					//定时器间隔减10
+					speed = speed - 10;
+					// 清除原来定时器，重新绘制
+					clearInterval(time);
+					time = setInterval(function () {
+						kd = 0;
+						ctx.clearRect(0, 0, wide, high);
+						update();
+						draw();
+
+					}, speed);
+
+				}
+
+			}
+			//添加新头
+			snake.splice(0, 0, head);
+			//去掉尾部
+			snake.pop();
+
+		}
+
+		//判断点击事件 
+		document.addEventListener('keydown', event => {
+			switch (event.keyCode) {
+				// 按了向上键
+				case 38:
+					// 判断当前不是向下移动与还没按过键，否则蛇会重叠
+					if (diretion.y != 1 && kd == 0) {
+						// 重新给移动方向赋值
+						diretion.x = 0;
+						diretion.y = -1;
+						kd = 1;
+					}
+					break;
+					// 下面以此类推一样的原理
+				case 39:
+					if (diretion.x != -1 && kd == 0) {
+						diretion.x = 1;
+						diretion.y = 0;
+						kd = 1;
+					}
+					break;
+				case 40:
+					if (diretion.y != -1 && kd == 0) {
+						diretion.x = 0;
+						diretion.y = 1;
+						kd = 1;
+					}
+					break;
+				case 37:
+					if (diretion.x != 1 && kd == 0) {
+						diretion.x = -1;
+						diretion.y = 0;
+						kd = 1;
+					}
+					break;
+
+			}
+		})
+
+		chushi();
+		var time = setInterval(function () {
+			kd = 0;
+			ctx.clearRect(0, 0, wide, high);
+			update();
+			draw();
+
+		}, speed);
+	</script>
+</body>
+
+</html>

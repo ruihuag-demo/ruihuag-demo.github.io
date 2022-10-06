@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{ 
+        box-sizing: border-box;
+    }
+    body{
+        /* margin-top: 300px; */
+        padding: 20px;
+    }
+    li{
+        list-style: none;
+    }
+    img {
+        visibility: hidden;
+        position: absolute;
+        transition: visibility .2s;
+    }
+
+    a:hover+img,
+    img:hover {
+        visibility: visible;
+    }
+    h2::before{
+        /* content: "(" 123 ")"; */
+        content: 'before';
+    }
+    h2::after{
+        content: 'after|';
+    }
+    /* loading begin */
+    .loading{
+        width: 100px;
+        height: 100px;
+        background-color: #34455a;
+        border-radius: 50%;
+        border-top: 5px solid #ff0000;
+        position: relative;
+        animation: a1 1s linear infinite;
+    }
+    .loading span{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        font-size: 13px;
+        color: #fff;
+        line-height: 100px;
+        text-align: center;
+        animation: a2 1s linear infinite;
+    }
+    .loading::before, .loading::after{
+        content: '';
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: 0;
+        top: -5px;
+        box-sizing: border-box;
+        border-radius: 50%;
+    }
+    .loading::before{
+        border-top: 5px solid #10aeff;
+        transform: rotate(120deg);
+    }
+    .loading::after{
+        border-top: 5px solid #5456db;
+        transform: rotate(240deg);
+    }
+    @keyframes a1 {
+        to{
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes a2 {
+        to{
+            transform: rotate(-360deg);
+        }
+    }
+
+    /* loading end */
+</style>
+
+<body>
+    <a href="javascript:;">图片链接</a>
+    <img src="../image/pkq.jpg" alt />
+    <div>
+        <input type="text" value="" id="selectValue">
+        <ul id="inputSelect"></ul>
+    </div>
+    <h2 class="content a-test">22</h2>
+    <div class="loading"><span>loading</span></div>
+</body>
+<script>
+    const list = [];
+    let i = 0;
+    while( i <= 10){
+        list.push('a'+i);
+        i++;
+    }
+    console.log(list);
+    const element = document.querySelector('input');
+    element.addEventListener("input", function(){
+        let val = this.value.toString().toLowerCase().trim();
+        if(val != ''){
+            const ulelement = document.querySelector('#inputSelect');
+            if(!ulelement.hasChildNodes()){
+                createLiElemnet();
+            }else{
+                let childs = ulelement.childNodes;
+                for(let i = childs.length -1; i>= 0; i--){
+                    ulelement.removeChild(childs[i])
+                }
+                createLiElemnet();
+            }
+           
+        }
+    })
+    const createLiElemnet = () =>{
+        let selectValue = document.querySelector('#selectValue').value;
+        list.forEach((item)=>{
+            if(item.indexOf(selectValue)!==-1){
+                let newNode = document.createElement('li')
+                newNode.innerHTML = item;
+                document.querySelector('#inputSelect').appendChild(newNode)
+            }
+        })
+    }
+    console.log(element)
+</script>
+</html>

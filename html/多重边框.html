@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css">
+	<title>多重边框</title>
+</head>
+
+<style>
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+	}
+
+	#outline {
+		width: 84px;
+		height: 84px;
+		border: 8px solid blue;
+		/*-webkit-border-radius: 5px;  
+    -moz-border-radius: 5px;  
+    border-radius: 5px;*/
+		outline: 10px solid brown;
+		outline-offset: 0px;
+		/*border和outline之间的距离*/
+		margin: 20px;
+		/*因为outline不影响布局，使用margin给边框腾位置*/
+	}
+
+	#boxShadow {
+
+		margin: 40px;
+		/*因为box-shadow不影响布局，使用margin给边框腾出位置*/
+		width: 84px;
+		height: 84px;
+		border: 8px solid blue;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		-webkit-box-shadow: 0 0 0 10px brown;
+		box-shadow: 0 0 0 10px brown;
+		/*参数分别为：水平偏移量、垂直偏移量、模糊距离、向外扩展距离和投影颜色*/
+	}
+
+	/*使用box-shadow一次性设置多个边框，并且使用内嵌投影*/
+	#moreboxShadow {
+		width: 120px;
+		height: 120px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 50px;
+		border: 8px solid blue;
+		/*注意：向外扩张的距离要每次累加；内嵌投影即添加参数为inset,该参数可选，当不设置时即为外投影*/
+		/* -webkit-box-shadow:
+			inset 0 0 0 10px brown,
+			inset 0 0 0 20px yellow,
+			inset 0 0 0 25px black,
+			inset 0 0 0 30px green; */
+		box-shadow:
+			inset 0 0 0 10px brown,
+			inset 0 0 0 20px yellow,
+			inset 0 0 0 25px black,
+			/* inset 0 0 0 25px black, */
+			inset 0 0 0 30px green;
+		border-radius: 45%;
+		/* animation: borderRotate .8s linear infinite; */
+		/* transition: borderRotate; */
+		/* transform: rotate(45deg); */
+		/*设置内边距，为box-shadow添加的添加的边框疼位置，这样就不会影响元素之间的位置*/
+	}
+
+	#moreboxShadow>div {
+		/* transform: rotate(-45deg); */
+		/* animation: borderRotate2 .8s linear infinite; */
+	}
+
+	@keyframes borderRotate {
+		from {
+			transform: rotate(0deg);
+		}
+
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes borderRotate2 {
+		from {
+			transform: rotate(0deg);
+		}
+
+		to {
+			transform: rotate(-360deg);
+		}
+	}
+
+	/* .testBorder {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: red;
+		width: 150px;
+		height: 150px;
+		border: 10px solid;
+		border-image: url('../assets/img/pkq.png') 30 30 repeat;
+	} */
+
+
+	.testBorder {
+		margin: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	.testBorder>.item {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		z-index: 999;
+		border: none;
+		/* background-color: #fff; */
+		background-color: rgba(255, 255, 255, 0.5);
+
+		line-height: 1.8;
+		box-sizing: border-box;
+		background-image: linear-gradient(#2e2e2e, #2e2e2e), linear-gradient(to bottom right, #0fd850, #f9f047);
+		font-weight: 300;
+		padding: 4px;
+		border-radius: 50%;
+		background-clip: content-box, padding-box;
+	}
+
+	.testBorder>.a {
+		/* position: absolute;
+		width: 90px;
+		height: 90px;
+		position: absolute;
+		z-index: 998;
+		border: none;
+		background-color: #fff;
+		line-height: 1.8;
+		box-sizing: border-box;
+		background-image: linear-gradient(to bottom, #ECE9E6, #000);
+		font-weight: 300;
+		padding: 5px;
+		border-radius: 50%;
+		background-clip: content-box, padding-box; */
+		/* border-image: linear-gradient(to bottom, #ECE9E6, #000) 1; */
+	}
+
+	/* .testBorder::after {
+		content: '';
+		width: 100px;
+		height: 100px;
+		border: 10px solid;
+		border-image: url('../assets/img/pkq.png') 30 30 repeat;
+	} */
+</style>
+
+<body>
+	<!-- <div id="outline">
+		outline实现多重边框
+	</div>
+
+	<div id="boxShadow">boxshadow实现多重边框(外投影)</div>
+	<div id="moreboxShadow">
+		<div>
+			boxshadow实现多重边框(内投影)
+		</div>
+	</div> -->
+
+	<!-- <button> HOVER ME </button> -->
+	<div class="testBorder">
+		<div class="item"></div>
+		<div class="a"></div>
+		<div class="b"></div>
+		<div class="c"></div>
+		<div class="d"></div>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js"></script>
+
+</body>
+
+</html>

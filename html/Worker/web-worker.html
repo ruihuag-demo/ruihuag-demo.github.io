@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+​
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>web worker</title>
+</head>
+​
+<script>
+	const number = 20 // 运行次数
+
+	// 多线程测试
+	function workerTest() {
+		console.log('%c 开始多线程测试 ', 'color:#fff; background:#00897b ')
+		const workerList = []
+		for (let i = 0; i < number; i++) {
+			const workerItem = new Promise((resolve, reject) => {
+				const myWorker = new Worker('worker.js')
+				myWorker.postMessage({
+					function: 'fb',
+					data: 43
+				})
+				myWorker.onmessage = (e) => {
+					resolve(e.data)
+					// 关闭worker线程
+					myWorker.terminate()
+				}
+			})
+			workerList.push(workerItem)
+		}
+		console.time('worker多线程执行时间')
+		Promise.all(workerList).then(res => {
+			console.log(res)
+			console.timeEnd('worker多线程执行时间')
+		})
+	}
+
+	function singleTest() {
+		console.log('%c 开始单线程测试 ', 'color:#fff; background:#00897b ')
+		function fb(n) {
+			if (n === 1 || n === 2) {
+				return 1;
+			}
+			return fb(n - 1) + fb(n - 2)
+		}
+		console.time('单线程执行时间')
+		for (let i = 0; i < number; i++) {
+			const res = fb(43)
+			console.log({
+				data: res,
+				name: 'single test'
+			})
+		}
+		console.timeEnd('单线程执行时间')
+	}
+</script>
+​
+
+<body>
+	<button onclick="singleTest()">单线程测试</button>
+	<button onclick="workerTest()">多线程测试</button>
+</body>
+​
+
+</html>

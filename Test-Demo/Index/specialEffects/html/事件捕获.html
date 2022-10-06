@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>dom事件</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <style type="text/css" media="screen">
+        #wrapper {
+            width: 300px;
+            height: 150px;
+            background: yellow;
+            text-align: center;
+            line-height: 150px;
+            font-size: 40px;
+        }
+    </style>
+
+    <div id="wrapper">点我啊点我啊</div>
+
+    <script type="text/javascript">
+        var eve = document.getElementById('wrapper');
+
+        //验证事件捕获过程
+        window.addEventListener('click', function(){
+            console.log('window capture')
+        }, true)
+
+        document.addEventListener('click', function(){
+            console.log('document capture')
+        }, true)    
+
+        //document.documentElement 获取的是 html 标签
+        document.documentElement.addEventListener('click', function(){
+            console.log('html capture')
+        }, true)
+
+        document.body.addEventListener('click', function(){
+            console.log('body capture')
+        }, true)
+
+        eve.addEventListener('click', function(){
+            console.log('eve capture')
+        }, true)
+
+        //自定义事件
+        var customEvent = new Event('test')
+        eve.addEventListener('test', function(){
+                console.log('自定义事件 test 触发')
+        }, true)
+
+        setTimeout(() => {
+            eve.dispatchEvent(customEvent)
+        }, 3000)
+    </script>
+</body>
+</html>

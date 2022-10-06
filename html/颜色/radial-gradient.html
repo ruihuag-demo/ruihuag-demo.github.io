@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css">
+	<title>radial-gradient</title>
+</head>
+<style>
+	:root {
+		--item: 300px;
+		--item-h: 400px;
+	}
+
+	div>div {
+		display: inline-block;
+		width: var(--item);
+		height: var(--item);
+		/* height: var(--item-h); */
+		background-color: #fff;
+		margin: 3px;
+	}
+
+	.item1 {
+		background-image: radial-gradient(#e66465, #9198e5);
+	}
+
+	.item2 {
+		background-image: radial-gradient(red 5%, green 15%, blue 60%);
+	}
+
+	.item3 {
+		background-image: radial-gradient(circle, red, yellow, green);
+	}
+
+	.item4 {
+		background-image: radial-gradient(closest-side at 60% 55%, blue, green, yellow, black);
+	}
+
+	.item5 {
+		background-image: radial-gradient(farthest-side at 60% 55%, blue, green, yellow, black);
+	}
+
+	.item6 {
+		background-image: radial-gradient(closest-corner, red 30%, green 60%, blue 0%);
+	}
+
+	.item7 {
+		/* background-image: radial-gradient(ellipse, red, green, blue); */
+		background-image: radial-gradient(closest-side at 90% 65%, red, green, blue);
+	}
+
+	.item8 {
+		/* background-image: radial-gradient(circle, red, green, blue); */
+		background-image: radial-gradient(farthest-side at 50% 50%, black, green 70%, black);
+	}
+
+	.item9 {
+		background-image: radial-gradient(farthest-side, red 30%, green 60%, blue 0%);
+		;
+		animation: item9Animation .8s ease-out infinite;
+	}
+
+	@keyframes item9Animation {
+		0% {
+			background-image: radial-gradient(farthest-side, red 30%, green 60%, blue 0%);
+		}
+
+		10% {
+			background-image: radial-gradient(farthest-side, red 32%, green 60%, blue 0%);
+		}
+
+		20% {
+			background-image: radial-gradient(farthest-side, red 34%, green 60%, blue 0%);
+		}
+
+		30% {
+			background-image: radial-gradient(farthest-side, red 36%, green 60%, blue 0%);
+		}
+
+		40% {
+			background-image: radial-gradient(farthest-side, red 38%, green 60%, blue 0%);
+		}
+
+		50% {
+			background-image: radial-gradient(farthest-side, red 40%, green 60%, blue 0%);
+		}
+
+		60% {
+			background-image: radial-gradient(farthest-side, red 38%, green 60%, blue 0%);
+		}
+
+		70% {
+			background-image: radial-gradient(farthest-side, red 36%, green 60%, blue 0%);
+		}
+
+
+		80% {
+			background-image: radial-gradient(farthest-side, red 34%, green 60%, blue 0%);
+		}
+
+		90% {
+			background-image: radial-gradient(farthest-side, red 32%, green 60%, blue 0%);
+		}
+
+		100% {
+			background-image: radial-gradient(farthest-side, red 30%, green 60%, blue 0%);
+		}
+	}
+</style>
+
+<body>
+	<div>
+		<div class="item1"></div>
+		<div class="item2"></div>
+		<div class="item3"></div>
+		<div class="item4"></div>
+		<div class="item5"></div>
+		<div class="item6"></div>
+		<div class="item7"></div>
+		<div class="item8"></div>
+		<div class="item9"></div>
+		<div class="item10"></div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+</body>
+
+</html>

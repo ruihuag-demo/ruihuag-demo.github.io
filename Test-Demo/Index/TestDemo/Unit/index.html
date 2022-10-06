@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<title>单位</title>
+</head>
+<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+
+	html {
+		font-size: 10px;
+	}
+
+	/* body {
+		font-size: 15px;
+		min-width: 100vw;
+		min-height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	} */
+
+	.app {
+		font-size: 20px;
+	}
+
+	.a {
+		font-size: 10px;
+	}
+
+	.b {
+		font-size: 1rem;
+	}
+
+	.c {
+		font-size: 1em;
+		background-color: red;
+		width: 300px;
+	}
+
+	.demo {
+		font-size: 1rem;
+		background-color: green;
+		height: 5rem;
+		width: 100rem;
+		/* width: 1920px; */
+	}
+</style>
+
+<body>
+	<div class="app">
+		<div class="a">關瑞華ruihua,px</div>
+		<div class="b">關瑞華ruihua,rem</div>
+		<div class="c">關瑞華ruihua,em</div>
+		<div class="demo">remtest</div>
+
+	</div>
+	<script>
+		/*响应式布局 start*/
+		function IsPC() {
+			let userAgentInfo = navigator.userAgent;
+			// alert(userAgentInfo);
+			let Agents = ["Android", "iPhone",
+				"SymbianOS", "Windows Phone",
+				"iPad", "iPod", "XiaoMi", "Quark"
+			];
+			let flag = true;
+			for (let v = 0; v < Agents.length; v++) {
+				if (userAgentInfo.indexOf(Agents[v]) > 0) {
+					flag = false;
+					break;
+				}
+			}
+			return flag;
+		}
+
+
+// 想要的大小/实际显示的小 = 设计大小/浏览器宽
+
+		function setRootFontSize() {
+			// let width = document.documentElement.clientWidth || document.body.clientWidth;
+			console.log("H:" + window.screen.height + " W:" + window.screen.width + " dpr:" + window.devicePixelRatio)
+
+			let dpr = window.devicePixelRatio;
+			let wsw = window.screen.width; // 1920
+			let ww = window.innerWidth; //  实际宽度
+
+			let fontSize = 10;
+			if (IsPC()) {
+				fontSize = ww / 100;
+			} else {
+				fontSize = wsw / 100;
+			}
+			console.log(wsw)
+			console.log(ww)
+			console.log(ww * dpr)
+			console.log(fontSize)
+			console.log(IsPC());
+
+			alert("H:" + window.screen.height + " W:" + window.screen.width + " dpr:" + window.devicePixelRatio)
+			document.getElementsByTagName('html')[0].style['font-size'] = fontSize + 'px';
+		}
+
+		setRootFontSize();
+		window.addEventListener('resize', function () {
+			setRootFontSize();
+		}, false);
+		/*响应式布局 end*/
+
+
+		// var phoneWidth = parseInt(window.screen.width);
+		// var phoneHeight = parseInt(window.screen.height);
+		// var phoneScale = phoneWidth / 750; //除以的值按手机的物理分辨率
+		// var ua = navigator.userAgent;
+		// if (/Android (\d+\.\d+)/.test(ua)) {
+		// 	var version = parseFloat(RegExp.$1);
+		// 	// andriod 2.3
+		// 	if (version > 2.3) {
+		// 		document.write('<meta name="viewport" content="width=device-width,initial-scale=' + phoneScale +
+		// 			',minimum-scale=' + phoneScale + ',maximum-scale=' + phoneScale + ',user-scalable=no">');
+		// 		// andriod 2.3以上
+		// 	} else {
+		// 		document.write('<meta name="viewport" content="width=device-width,user-scalable=no">');
+		// 	}
+		// 	// 其他系统
+		// } else {
+		// 	document.write('<meta name="viewport" content="width=device-width, initial-scale=' + phoneScale +
+		// 		',minimum-scale=' + phoneScale + ',maximum-scale =' + phoneScale + ',user-scalable=no,">');
+		// }
+
+
+		// 手机小米8 20180531
+		// 逻辑像素:  818 393 2.75
+		// 缩放因子: 2.75
+		// 分辨率 2248*1080
+		// 尺寸 6.21
+		// ppi 402 = ((2248^2+1080^2)^(1/2)) /6.21
+
+		// 电脑 小米笔记本air13.3
+		// 逻辑像素: H:667 W:375 RA:2.0000000596046448
+		// 缩放因子: 2
+		// 笔记本 667 375 
+		// 分辨率 1920*1080
+		// 尺寸 13.3
+		// ppi 166 = ((1920^2+1080^2)^(1/2) )/13.3
+
+		// 逻辑像素就是 日常css 使用的像素
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{padding: 0;margin: 0;}
+    .container{
+        width: 450px;
+        margin-top: 300px;
+        position: relative;
+        /* 可以消除div之间的间隙 */
+        font-size: 0;
+        margin: 300px auto;
+        transform: rotate(-135deg);
+        animation: myLove 2s infinite normal;
+    }
+    .container>div{
+        display: inline-block;
+        width: 300px;
+        height: 300px;
+        background: red;
+        margin: 0;
+        padding: 0;
+    }
+    .container>.middle{
+        border-top-left-radius: 30%;
+    }
+    .container>.right{
+        border-radius: 100%;
+        margin-top: -150px;
+    }
+    .container>.left{
+       border-radius: 100%;
+       margin-left: -150px;
+    }
+    @keyframes myLove {
+        0% {
+            transform: rotate(-135deg);
+        }
+        12.5% {
+            transform: rotate(-180deg);
+        }
+        25% {
+            transform: rotate(-225deg);
+        }
+        37.5% {
+            transform: rotate(-270deg);
+        }
+        50% {
+            transform: rotate(-315deg);
+        }
+        62.5% {
+            transform: rotate(-360deg);
+        }
+        75% {
+            transform: rotate(-405deg);
+        }
+        87.5% {
+            transform: rotate(-450deg);
+        }
+        100% {
+            transform: rotate(-495deg);
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="middle"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    
+</body>
+</html>

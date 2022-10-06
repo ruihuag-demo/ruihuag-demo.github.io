@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #eee;
+	}
+
+	canvas {
+		/* border: 1px solid; */
+		/* transform: rotate(30deg) */
+	}
+</style>
+
+<body>
+	<canvas id="roundCanvas" width="800" height="800"></canvas>
+	<script>
+		const roundCanvas = document.getElementById('roundCanvas')
+		const ctx = roundCanvas.getContext('2d')
+
+		function addCircular(x, y) {
+			ctx.translate(x, y);
+			ctx.beginPath();
+			ctx.strokeStyle = '#fff'
+			ctx.arc(0, 0, 50, 0, 2 * Math.PI);
+			ctx.fill()
+			ctx.stroke();
+		}
+
+		ctx.beginPath();
+		ctx.strokeStyle = 'blue';
+		ctx.translate(400, 400);
+		ctx.arc(0, 0, 250, 0, 2 * Math.PI);
+		ctx.stroke();
+
+		// ctx.rotate(Math.PI*0.9)
+		const r = 250
+		const rr = Math.sqrt((250 ** 2)/2)
+		console.log(rr)
+		addCircular(250, 0)
+		addCircular(-500, 0)
+		addCircular(250, 250)
+		addCircular(0, -500)
+		addCircular(rr, r-rr)
+		addCircular(0, 2*rr)
+		addCircular(-2*rr, 0)
+		addCircular(0, -2*rr)
+		// addCircular(25, -525)
+
+
+		// ctx.strokeStyle = 'blue';
+		// ctx.translate(350, 250);
+		// ctx.arc(0, 0, 50, 0, 2 * Math.PI);
+		// ctx.closePath();
+		// ctx.stroke();
+
+	</script>
+</body>
+
+</html>

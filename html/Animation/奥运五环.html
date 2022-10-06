@@ -1,0 +1,103 @@
+<!--
+File: 拼图动画.html
+Project: Animation
+Author: ruihuag
+File Created: Wednesday, 11th August 2021 10:15:52 pm
+Modified By: ruihuag
+Last Modified: Wednesday, 11th August 2021 10:22:31 pm
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		perspective: 1000px;
+	}
+
+	.olympic-rings {
+		width: 800px;
+		min-width: 800px;
+		height: 370px;
+		min-height: 370px;
+
+		background-image: radial-gradient(circle, transparent 58%, #0081C8 58%, #0081C8 70%, transparent 70%),
+			radial-gradient(circle, transparent 58%, #000 58%, #000 70%, transparent 70%),
+			radial-gradient(circle, transparent 58%, #EE334E 58%, #EE334E 70%, transparent 70%),
+			radial-gradient(circle, transparent 58%, #FCB131 58%, #FCB131 70%, transparent 70%),
+			radial-gradient(circle, transparent 58%, #00A651 58%, #00A651 70%, transparent 70%);
+		background-position:
+			0% 0%,
+			50% 0%,
+			100% 0%,
+			25% 100%,
+			75% 100%;
+		background-repeat: no-repeat;
+		background-size: 250px 250px;
+		position: relative;
+
+		animation: rotate 5s ease-in-out infinite;
+	}
+
+	@keyframes rotate {
+
+		0%,
+		100% {
+			transform: rotatey(30deg);
+		}
+
+		50% {
+			transform: rotatey(-30deg);
+		}
+	}
+
+	.olympic-rings::before,
+	.olympic-rings::after {
+		content: '';
+		display: block;
+		width: inherit;
+		height: inherit;
+
+		background-image: radial-gradient(circle, transparent 58%, #FCB131 58%, #FCB131 70%, transparent 70%),
+			radial-gradient(circle, transparent 58%, #00A651 58%, #00A651 70%, transparent 70%),
+			radial-gradient(circle, transparent 58%, #0081C8 58%, #0081C8 70%, transparent 70%),
+			radial-gradient(circle, transparent 58%, #000 58%, #000 70%, transparent 70%),
+			radial-gradient(circle, transparent 58%, #EE334E 58%, #EE334E 70%, transparent 70%);
+
+		background-position:
+			25% 100%,
+			75% 100%,
+			0% 0%,
+			50% 0%,
+			100% 0%;
+		background-repeat: inherit;
+		background-size: inherit;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.olympic-rings::before {
+		clip-path: polygon(33% 28%, 39% 28%, 39% 67%, 16% 67%, 16% 57%, 33% 57%);
+	}
+
+	.olympic-rings::after {
+		clip-path: polygon(68% 28%, 72% 28%, 72% 67%, 50% 67%, 50% 57%, 68% 57%);
+	}
+</style>
+
+<body>
+	<div class="olympic-rings"></div>
+
+</body>
+
+</html>

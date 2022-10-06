@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas的基础使用</title>
+</head>
+<style lang="css">
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    canvas{
+        display: inline-block;
+        margin: 5px 10px;
+        /* background-color: antiquewhite; */
+        border: 1px solid gray;
+    }
+</style>
+<body>
+    <canvas id="myCanvas" width="150" height="150"></canvas>
+    <canvas id="myCanvas1" width="150" height="150"></canvas>
+    <canvas id="myCanvas2" width="150" height="150"></canvas>
+    <canvas id="myCanvas3" width="150" height="150"></canvas>
+    <canvas id="myCanvas4" width="150" height="150"></canvas>
+    <canvas id="myCanvas5" width="150" height="150"></canvas>
+    <img src="./image/pkq.jpg" alt="" id="img_pkq" width="100" height="100">
+    <canvas id="myCanvas6" width="150" height="150"></canvas>
+    <canvas id="myCanvas7" width="150" height="150"></canvas>
+    <canvas id="myCanvas8" width="150" height="150"></canvas>
+<script>
+    let cv  = document.getElementById("myCanvas");
+    if(cv.getContext){
+        let ctx = cv.getContext('2d')
+        
+        ctx.fillStyle = "rgba(200, 0, 0, 0.5)";
+        ctx.fillRect(10, 10, 55, 50);
+        ctx.fillStyle = "rgba(200, 0, 0, 0.5)";
+        ctx.fillRect(20, 20, 55, 50);
+
+        // 绘制矩形提供的三种方法
+        /**
+            fillRect(x, y, width, height)
+            绘制一个填充的矩形
+            strokeRect(x, y, width, height)
+            绘制一个矩形的边框
+            clearRect(x, y, width, height)
+            清除指定矩形区域，让清除部分完全透明。
+         **/
+        let ctx1  =document.getElementById("myCanvas1").getContext("2d")
+        ctx1.fillStyle = "black";
+        ctx1.fillRect(10, 10, 100, 100);
+        ctx1.clearRect(30, 30, 60, 60);
+        ctx1.strokeRect(40, 40, 40, 40);
+
+        /**
+         * 绘制路径
+            beginPath()
+            新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。
+            closePath()
+            闭合路径之后图形绘制命令又重新指向到上下文中。
+            stroke()
+            通过线条来绘制图形轮廓。
+            fill()
+            通过填充路径的内容区域生成实心的图形。
+         **/ 
+        let ctx2 = document.getElementById("myCanvas2").getContext("2d")
+        ctx2.beginPath();
+        ctx2.moveTo(75, 50);
+        ctx2.lineTo(100, 75);
+        ctx2.lineTo(100, 25);
+        ctx2.fill();
+
+        let ctx3 = document.getElementById("myCanvas3").getContext("2d")
+        ctx3.beginPath();
+        ctx3.arc(75, 75, 50, 0, Math.PI * 2, true); // 绘制
+        ctx3.moveTo(110, 75);
+        ctx3.arc(75, 75, 35, 0, Math.PI, false);   // 口(顺时针)
+        ctx3.moveTo(65, 65);
+        ctx3.arc(60, 65, 5, 0, Math.PI * 2, true);  // 左眼
+        ctx3.moveTo(95, 65);
+        ctx3.arc(90, 65, 5, 0, Math.PI * 2, true);  // 右眼
+        ctx3.stroke();
+
+        let ctx4 = document.getElementById("myCanvas4").getContext("2d")
+        ctx4.beginPath();
+        ctx4.moveTo(75, 50);
+        ctx4.lineTo(100, 75);
+        ctx4.lineTo(100, 25);
+        ctx4.closePath();
+        ctx4.stroke();
+
+        let ctx5 = document.getElementById("myCanvas5").getContext("2d")
+        ctx5.fillText ("矩形" , 10, 100);
+        ctx5.strokeText ("矩形" , 10, 120);
+        ctx5.fillRect(10, 10, 20, 20);
+        ctx5.strokeRect(40, 10, 20, 20);
+        
+        ctx5.fillRect(10, 40, 20, 20);
+        ctx5.clearRect(10, 40, 10, 10);
+
+        let ctx6 = document.getElementById("myCanvas6").getContext("2d")
+        ctx6.fillText("绘制图片", 60, 20);
+        let img = documnet.getElementById("img_pkq");
+        ctx6.drawImage(img, 10, 30, 40, 40);
+
+    }else{
+        console.log("no support canvas")
+    }
+</script>
+</body>
+</html>

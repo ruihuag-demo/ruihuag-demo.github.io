@@ -1,0 +1,77 @@
+{
+  "code": "0",
+  "message": "成功",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 50,
+    "orderBy": "",
+    "totalCount": 5,
+    "result": [{
+      "id": "4869528534491595776",
+      "createUserId": "3841386112773784064",
+      "createDate": "2020-01-15 17:44:53",
+      "updateUserId": "3841386112773784064",
+      "updateDate": "2020-01-15 17:44:53",
+      "remarks": "",
+      "delFlag": 0,
+      "code": "message_seretsgdkjgassssssssssssssssssssssssssssss",
+      "companyId": "3841386110341087744",
+      "name": "{\"en_US\": \"test4\", \"zh_CN\": \"test4\", \"zh_TW\": \"test4\"}",
+      "description": "{\"en_US\": \"sssssss\", \"zh_CN\": \"sssssss\", \"zh_TW\": \"sssssss\"}",
+      "isUse": 1
+    }, {
+      "id": "4869516315242529792",
+      "createUserId": "3841386112773784064",
+      "createDate": "2020-01-15 17:32:45",
+      "updateUserId": "3841386112773784064",
+      "updateDate": "2020-01-15 17:32:45",
+      "remarks": "",
+      "delFlag": 0,
+      "code": "sssss",
+      "companyId": "3841386110341087744",
+      "name": "{\"en_US\": \"test4\", \"zh_CN\": \"test4\", \"zh_TW\": \"test4\"}",
+      "description": "{\"en_US\": \"sssss\", \"zh_CN\": \"sssss\", \"zh_TW\": \"sssss\"}",
+      "isUse": 0
+    }, {
+      "id": "4869510944889242624",
+      "createUserId": "3841386112773784064",
+      "createDate": "2020-01-15 17:27:25",
+      "updateUserId": "3841386112773784064",
+      "updateDate": "2020-01-15 17:44:16",
+      "remarks": "",
+      "delFlag": 0,
+      "code": "test3",
+      "companyId": "3841386110341087744",
+      "name": "{\"en_US\": \"test3\", \"zh_CN\": \"test3sdfdddddddddddddddddddddddddddddddddddddddddd\", \"zh_TW\": \"test3\"}",
+      "description": "{\"en_US\": \"ddddd\", \"zh_CN\": \"dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\", \"zh_TW\": \"ddddd\"}",
+      "isUse": 1
+    }, {
+      "id": "4869502935110779904",
+      "createUserId": "3841386112773784064",
+      "createDate": "2020-01-15 17:19:27",
+      "updateUserId": "3841386112773784064",
+      "updateDate": "2020-01-15 17:22:17",
+      "remarks": "",
+      "delFlag": 0,
+      "code": "test2",
+      "companyId": "3841386110341087744",
+      "name": "{\"en_US\": \"test2English\", \"zh_CN\": \"test2\", \"zh_TW\": \"test2\"}",
+      "description": "{\"en_US\": \"sssssss\", \"zh_CN\": \"sssssss\", \"zh_TW\": \"sssssss\"}",
+      "isUse": 1
+    }, {
+      "id": "4869502615337042944",
+      "createUserId": "3841386112773784064",
+      "createDate": "2020-01-15 17:19:08",
+      "updateUserId": "3841386112773784064",
+      "updateDate": "2020-01-15 17:19:08",
+      "remarks": "",
+      "delFlag": 0,
+      "code": "test1",
+      "companyId": "3841386110341087744",
+      "name": "{\"en_US\": \"test1\", \"zh_CN\": \"test1\", \"zh_TW\": \"test1\"}",
+      "description": "{\"en_US\": \"ssssssss\", \"zh_CN\": \"ssssssss\", \"zh_TW\": \"ssssssss\"}",
+      "isUse": 0
+    }],
+    "startRow": 0
+  }
+}

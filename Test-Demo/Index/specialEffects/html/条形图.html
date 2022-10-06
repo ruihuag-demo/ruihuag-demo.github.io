@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <svg width='1000' height='700' >
+    <g id="zuobiao">
+      <!-- x轴 -->
+      <line x1 = '50' y1 = '650' x2 = '950' y2 = '650' stroke='black'></line>
+      <path d="M 925,640 L 950,650 L 925,660"> </path>
+      <text x='950' y='680'>时间</text>
+  
+      <!-- y轴 -->
+      <line x1 = '50' y1 = '650' x2 = '50' y2 = '50' stroke='black'></line>
+      <path d="M 40,75 L 50,50 L 60,75"> </path>
+      <text x='20' y='40'>数量</text>
+    </g>
+    <g id="xkedu">
+      <!-- <line class = 'axkedu' x1 = '100' y1 = '650' x2 = '100' y2 = '630' stroke='black'></line> -->
+    </g>
+    <g id="barlist">
+      <!-- <rect x='50' y='650' height='180' width='40' style="stroke: blue; fill:blue; stroke-width: 3px;"/> -->
+    </g>
+  </svg>
+
+
+  <script>
+    let data = [{
+      data: '星期一',
+      order: '1000'
+    },{
+      data: '星期二',
+      order: '100'
+    },{
+      data: '星期三',
+      order: '600'
+    },{
+      data: '星期四',
+      order: '800'
+    },{
+      data: '星期五',
+      order: '400'
+    },{
+      data: '星期六',
+      order: '350'
+    },{
+      data: '星期天',
+      order: '350'
+    }] 
+
+    console.log([data])
+    let akedu = document.querySelector("#xkedu");
+    let barlist = document.querySelector("#barlist");
+    let jgLength = Math.ceil(450/data.length)
+    window.onload = ()=>{
+      for(let i=0, range = data.length; i<range; i++){
+        renderKedu(i);
+        renderRect(i);
+      }
+    };
+    
+    function renderKedu(index) {
+      var lineDOM = document.createElement("line");
+      let h = data[index].order/2
+      lineDOM.setAttribute('stroke', 'black');
+      lineDOM.setAttribute('x1', 50+(index+1)*jgLength);
+      lineDOM.setAttribute('y1','650');
+      lineDOM.setAttribute('x2', 50+(index+1)*jgLength);
+      lineDOM.setAttribute('y2','630');
+      akedu.innerHTML = akedu.innerHTML + lineDOM.outerHTML + `<text x='${30+(index+1)*jgLength}' y='${645-h}'>${data[index].data}</text>`;
+    }
+
+    function renderRect(index){
+      let h = data[index].order/2
+      barlist.innerHTML += `<rect x='${30+jgLength*(index+1)}' y='${650-h}' height='${h}' width='40' style="stroke: blue; fill:none; stroke-width: 1px;"/>`
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css">
+	<title>球3</title>
+</head>
+
+<style>
+:root{
+	--bgColor: red orange yellow green blue indigo violet indigo blue green yellow orange red orange yellow green blue indigo violet indigo blue green yellow orange;
+}
+
+/* .plane {
+  width:100px; 
+  height:100px; 
+  margin:150px auto;
+  transform-style: preserve-3d;
+  transform-origin: 50px 50px;
+  animation:spin 8s infinite linear;
+}
+.plane {  
+  ul {
+    padding:0; 
+    margin:0; 
+    list-style:none; 
+    width:100%; 
+    height:100%; 
+    position:absolute;
+    transform-style: preserve-3d;
+    
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}){
+        transform: rotateX(($i - 1) * 15deg);
+      }
+    }
+  }
+  
+  li {
+    position:absolute; 
+    display:block;
+    border-radius: 50px;
+    opacity: 0.8;
+    backface-visibility: hidden;
+    
+    @for $i from 1 through length($bgColor){
+      &:nth-child(#{$i}){
+        transform: rotateY(($i - 1) * 15deg) translateZ(187px);
+        background-color: nth($bgColor, $i);
+      }
+    }
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(12),
+    &:nth-child(13),
+    &:nth-child(14),
+    &:nth-child(24){
+      width:70px; 
+      height:70px; 
+      left:15px; 
+      top:15px;
+    }
+    &:nth-child(3),
+    &:nth-child(11),
+    &:nth-child(15),
+    &:nth-child(23){
+      width:64px; 
+      height:64px; 
+      left:18px; 
+      top:18px;
+    }
+    &:nth-child(4),
+    &:nth-child(10),
+    &:nth-child(16),
+    &:nth-child(22){
+      width:58px; 
+      height:58px; 
+      left:21px; 
+      top:21px;
+    }
+    &:nth-child(5),
+    &:nth-child(9),
+    &:nth-child(17),
+    &:nth-child(21){
+      width:54px; 
+      height:54px; 
+      left:23px; 
+      top:23px;
+    }
+    &:nth-child(6),
+    &:nth-child(8),
+    &:nth-child(18),
+    &:nth-child(20){
+      width:52px; 
+      height:52px; 
+      left:24px; 
+      top:24px;
+    }
+    &:nth-child(7),
+    &:nth-child(19){
+      width:50px; 
+      height:50px; 
+      left:25px; 
+      top:25px;
+    }
+  }
+} */
+
+.plane ul:nth-child(2) li:nth-child(19),
+.plane ul:nth-child(3) li:nth-child(19),
+.plane ul:nth-child(4) li:nth-child(19),
+.plane ul:nth-child(5) li:nth-child(19),
+.plane ul:nth-child(6) li:nth-child(19),
+.plane ul:nth-child(7) li:nth-child(19),
+.plane ul:nth-child(8) li:nth-child(19),
+.plane ul:nth-child(9) li:nth-child(19),
+.plane ul:nth-child(10) li:nth-child(19),
+.plane ul:nth-child(11) li:nth-child(19),
+.plane ul:nth-child(12) li:nth-child(19),
+
+.plane ul:nth-child(2) li:nth-child(18),
+.plane ul:nth-child(4) li:nth-child(18),
+.plane ul:nth-child(6) li:nth-child(18),
+.plane ul:nth-child(8) li:nth-child(18),
+.plane ul:nth-child(10) li:nth-child(18),
+.plane ul:nth-child(12) li:nth-child(18),
+
+.plane ul:nth-child(2) li:nth-child(20),
+.plane ul:nth-child(4) li:nth-child(20),
+.plane ul:nth-child(6) li:nth-child(20),
+.plane ul:nth-child(8) li:nth-child(20),
+.plane ul:nth-child(10) li:nth-child(20),
+.plane ul:nth-child(12) li:nth-child(20),
+
+.plane ul:nth-child(2) li:nth-child(7),
+.plane ul:nth-child(3) li:nth-child(7),
+.plane ul:nth-child(4) li:nth-child(7),
+.plane ul:nth-child(5) li:nth-child(7),
+.plane ul:nth-child(6) li:nth-child(7),
+.plane ul:nth-child(7) li:nth-child(7),
+.plane ul:nth-child(8) li:nth-child(7),
+.plane ul:nth-child(9) li:nth-child(7),
+.plane ul:nth-child(10) li:nth-child(7),
+.plane ul:nth-child(11) li:nth-child(7),
+.plane ul:nth-child(12) li:nth-child(7),
+
+.plane ul:nth-child(2) li:nth-child(6),
+.plane ul:nth-child(4) li:nth-child(6),
+.plane ul:nth-child(6) li:nth-child(6),
+.plane ul:nth-child(8) li:nth-child(6),
+.plane ul:nth-child(10) li:nth-child(6),
+.plane ul:nth-child(12) li:nth-child(6),
+
+.plane ul:nth-child(2) li:nth-child(8),
+.plane ul:nth-child(4) li:nth-child(8),
+.plane ul:nth-child(6) li:nth-child(8),
+.plane ul:nth-child(8) li:nth-child(8),
+.plane ul:nth-child(10) li:nth-child(8),
+.plane ul:nth-child(12) li:nth-child(8) {
+  display:none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateZ(0deg) rotateY(45deg) rotateX(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg) rotateY(405deg) rotateX(360deg);
+  }
+}
+</style>
+
+<body> <div class="plane"> <ul> <li> </li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li>ulli> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <ul> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> </div> <script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script> </body> </html>

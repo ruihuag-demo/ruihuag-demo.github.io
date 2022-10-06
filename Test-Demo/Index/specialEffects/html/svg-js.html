@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <svg height='400' width='400'>
+    <rect x='3' y='3' width='300' height='150' stroke='pink' fill='none' stroke-width='3px'></rect>
+  </svg>
+  <button>onclick</button>
+  <script>
+    document.querySelector('button').onclick = function(){
+      let svgRect = document.querySelector('rect');
+      console.log([svgRect])
+      console.log(svgRect)
+      svgRect.setAttribute('width','350')
+      svgRect.setAttribute('height','350')
+      svgRect.setAttribute('fill','orange')
+    }
+  </script>
+</body>
+</html>

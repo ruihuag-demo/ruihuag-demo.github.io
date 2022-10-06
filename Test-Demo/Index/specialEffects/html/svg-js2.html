@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <iframe src="./resoure/pao.svg" frameborder="0"
+  width="450" height="200" scrolling='no'
+  ></iframe>
+  <script>
+    document.querySelector('iframe').onload = function(){
+      let svgContent = this;
+      console.log(svgContent)
+      console.log([svgContent])
+      console.log(svgContent.contentDocument)
+    }
+  </script>
+</body>
+</html>

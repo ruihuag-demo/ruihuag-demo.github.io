@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../config/css/test-body.css">
+	<title>Document</title>
+</head>
+<style>
+
+</style>
+
+
+<template id="my-paragraph">
+	<style>
+		p {
+			color: white;
+			background-color: #666;
+			padding: 8px;
+		}
+	</style>
+	<p>
+		<slot name="my-text">My default text</slot>
+	</p>
+	<!-- <p>My paragraph</p> -->
+</template>
+
+<body>
+
+	<script>
+
+		customElements.define('my-paragraph',
+			class extends HTMLElement {
+				constructor() {
+					super();
+					let template = document.getElementById('my-paragraph');
+					let templateContent = template.content;
+
+					const shadowRoot = this.attachShadow({ mode: 'open' })
+						.appendChild(templateContent.cloneNode(true));
+				}
+			}
+		)
+
+	</script>
+
+	<my-paragraph>
+
+	</my-paragraph>
+
+	<my-paragraph>
+		<ul slot="my-text">
+			<li>Let's have some different text!</li>
+			<li>In a list!</li>
+		</ul>
+	</my-paragraph>
+
+
+
+	<script src="../../config/js/addWindowSize.js" defer></script>
+</body>
+
+</html>

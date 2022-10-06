@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{padding: 0;margin: 0;}
+    .wrapper {
+        margin: 100px;
+        /* 声明一个容器 */
+        display: grid;
+        /*  声明列的宽度  */
+        grid-template-columns: repeat(3, 200px);
+        /*  声明行间距和列间距  */
+        grid-gap: 20px 20px;
+        /*  声明行的高度  */
+        grid-template-rows: 100px 200px;
+    }
+    .one {
+    background: #19CAAD;
+    }
+    .two { 
+    background: #8CC7B5;
+    }
+    .three {
+    background: #D1BA74;
+    }
+    .four {
+    background: #BEE7E9;
+    }
+    .five {
+    background: #E6CEAC;
+    }
+    .six {
+    background: #ECAD9E;
+    }
+    .item {
+    text-align: center;
+    font-size: 200%;
+    color: #fff;
+    }
+    .wrapper2{
+        display: grid;
+        /* grid-template-columns: repeat(3 , 200px); */
+        /* 和上一行的效果相同 */
+        /* grid-template-columns: 200px 200px 200px; */
+        /* auto-fill表示只要可以放得下就会放 */
+        /* grid-template-columns: repeat(auto-fill, 300px); */
+        /*  fr代表划分等份,1fr表示3等份中的一份*/
+        /* grid-template-columns: 1fr 1fr minmax(300px, 2fr)
+            minmax(300px, 2fr)表示最小不小于300px, 最大不超过2fr
+         */
+        grid-template-columns: 200px 1fr 2fr;
+        /* grid-gap: 30px 20px;等同于下两行 */
+        grid-row-gap: 30px;
+        grid-column-gap: 20px;
+        grid-template-areas: ". header"
+        "content content";
+    }
+
+    .wrapper2 .one{
+        grid-area: header;
+    }
+    .wrapper2 .four{
+        grid-area: content;
+    }
+
+    .content{
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-gap: 5px;
+    }
+    .gridItem{
+        display: block;
+        background-color: gray;
+        overflow: hidden;
+    }
+
+    .wrapper3{
+        display: grid;
+        grid-template-areas: ". Header" "Sider content";
+        grid-template-rows: 200px 200px;
+        grid-template-columns: 150px;
+    }
+    .wrapper3>.header{
+        background-color: #19CAAD;
+        grid-area: Header;
+    }
+    .wrapper3>.siderbar{
+        background-color: #E6CEAC;
+        grid-area: Sider;
+    }
+    .wrapper3>.content{
+        background-color: #8CC7B5;
+        grid-area: content;
+    }
+    .wrapper4>
+</style>
+<body>
+    <div class="content">
+        <div class="gridItem">
+            <div class="wrapper">
+                <div class="one item">One</div>
+                <div class="two item">Two</div>
+                <div class="three item">Three</div>
+                <div class="four item">Four</div>
+                <div class="five item">Five</div>
+                <div class="six item">Six</div>
+            </div>
+        </div>
+        <div class="gridItem">
+            <div class="wrapper2">
+                <div class="one item">One</div>
+                <div class="two item">Two</div>
+                <div class="three item">Three</div>
+                <div class="four item">Four</div>
+                <div class="five item">Five</div>
+                <div class="six item">Six</div>
+              </div>
+        </div>
+        <div class="gridItem">
+            <div class="wrapper3">
+                <div class="siderbar item">Siderbar</div>
+                <div class="content item">content</div>
+                <div class="header item">Header</div>
+            </div>
+        </div>
+        <div class="gridItem">
+            <div class="wrapper3">
+                <div class="siderbar item">Siderbar</div>
+                <div class="content item">content</div>
+                <div class="header item">Header</div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,102 @@
+j<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="index.css" rel="stylesheet" type="text/css"/>
+</head>
+<style>
+	.box {
+		width: 50px;
+		height: 50px;
+		margin: 3px;
+		float: left;
+	}
+
+	.box2{
+		width: 200px;
+		height: 100px;
+		padding: 5px;
+	}
+
+	.bgc {
+		background-color: var(--color);
+	}
+
+	.bgi {
+		border: 5px dashed black ;
+		background-image: url('../asset/image/pkq.jpg');
+		/* background-image: url('https://api.pixivweb.com/anime18r.php?return=img'); */
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		background-clip:padding-box;
+	}
+
+	.bgi2 {
+		border: 5px dashed black ;
+		background-image: url('../asset/image/pkq.jpg');
+		/* background-image: url('https://api.pixivweb.com/anime18r.php?return=img'); */
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-clip:border-box;
+	}
+
+	.bgi3 {
+		border: 5px dashed black ;
+		background-image: url('../asset/image/pkq.jpg');
+		/* background-image: url('https://api.pixivweb.com/anime18r.php?return=img'); */
+		background-repeat: no-repeat;
+		background-size: 120px;
+		background-position: center;
+		background-clip:content-box;
+	}
+
+	.bga{
+		width: 150px;
+		height: 200px;
+		font-size: 80px;
+		line-height: 200px;
+		text-align: center;
+		border: 20px dashed yellowgreen;
+		background-image: url(https://user-gold-cdn.xitu.io/2020/3/19/170f20b3c106f518?w=642&h=339&f=png&s=107259);
+		background-repeat: no-repeat;
+		background-origin: border-box;
+		-webkit-background-clip: text;
+		color: transparent;
+	}
+
+</style>
+
+<body>
+	<div class="attachment">
+		<h3>background-attachment</h3>
+		<div class="box box2 bga">text</div>
+		<div class="box box2 bga">text</div>
+		<div class="box box2 bga">text</div>
+		<div class="box box2 bga">text</div>
+		<div class="box box2 bga">text</div>
+	</div>
+
+	<div>
+		<h3> background-color</h3>
+		<div class="box bgc" style="--color:#000;"></div>
+		<div class="box bgc" style="--color:red;"></div>
+		<div class="box bgc" style="--color:rgb(200,200,200);"></div>
+		<div class="box bgc" style="--color:rgba(0,0,0,.5);"></div>
+		<div class="box bgc" style="--color:hsla(50, 33%, 25%, 0.9)"></div>
+	</div>
+
+	<div>
+		<h3> background-image</h3>
+		<div class="box box2 bgi"></div>
+		<div class="box box2 bgi2"></div>
+		<div class="box box2 bgi3"></div>
+	</div>
+
+</body>
+
+</html>

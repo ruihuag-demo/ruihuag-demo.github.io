@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  svg{
+    width: 600px;
+  }
+  .emojis {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 0 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+  }
+
+  .emojis li{
+    flex: 1;
+    font-size: 60px;
+    text-align: center;
+    padding: 0 32px;
+    line-height: 100px;
+    transition: .2s all ease-in-out;
+  }
+
+  .emojis li:hover {
+    transform: scale(1.6);
+  }
+
+  .emojis + svg #pop {
+    r: 20px;
+    transition: .2s  r ease-in-out;
+  }
+
+  .emojis:hover + svg #pop {
+    r: 40px;
+  }
+</style>
+<body>
+  <ul class="emojis">
+    <li>😊</li>
+    <li>😂</li>
+    <li>😂</li>
+    <li>😂</li>
+  </ul>
+
+  <svg viewBox = "0 0 300 162">
+    <filter id="min">
+      <feGaussianBlur in = "SourceGaphic" result="blur" stdDeviation="5" />
+      <feColorMatrix in="blur"  mode ="matrix" values=" 1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 60 -36"/>
+
+    </filter>
+    <g filter="url(#min)">
+      <rect width="300" height="50" x="0" y="50" rx="25" fill="#e3e3e3"></rect>
+      <circle cx="40" cy="75"  fill="#e3e3e3" id="pop"></circle>
+    </g>
+  </svg>
+
+  <script>
+    const app = document.querySelector('#pop')
+
+    document.querySelector('.emojis').addEventListener('mousemove', e => {
+      let offset = ( e.clientX - e.currentTarget.getBoundingClientRect().left) / 2
+      if(offset < 40 ) offset = 40;
+      if(offset >= 260 ) offset = 260;
+      pop.setAttribute('cx', offset);
+    })
+  </script>
+
+</body>
+</html>

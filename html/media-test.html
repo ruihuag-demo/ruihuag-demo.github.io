@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../config/css/test-body.css">
+	<title>Document</title>
+</head>
+<style>
+	#media-flex {
+		display: flex;
+		background-color: rgb(75, 36, 62);
+		flex-wrap: wrap;
+		padding: 5px;
+	}
+
+	#media-flex>div {
+		border: 1px solid #fff;
+		text-align: center;
+		width: 80px;
+		height: 30px;
+		margin: auto;
+	}
+
+
+	@media screen and (min-width:900px) {
+		#media-flex {
+			color: rgb(130, 207, 142);
+			width: 150px;
+			min-width: 150px;
+			height: 600px;
+		}
+	}
+
+	@media screen and (max-width: 900px) {
+		#media-flex {
+			width: 300px;
+			min-width: 300px;
+			height: 200px;
+			color: rgb(182, 159, 128);
+		}
+	}
+</style>
+
+<body>
+	<div id="media-flex">
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+		<div>123</div>
+	</div>
+	<script>
+
+	</script>
+	<script src="../config/js/addWindowSize.js" defer></script>
+</body>
+
+</html>

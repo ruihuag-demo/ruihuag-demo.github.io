@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+  }
+  .roller {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: #eee; */
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+  }
+  .roller::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .roller::-webkit-scrollbar-track {
+    background-color: grey;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+  }
+
+  .roller::-webkit-scrollbar-thumb {
+    background-color: grey;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+  }
+  .roller li {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #333;
+    scroll-snap-align: start;
+  }
+  .roller-wrapper {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    background-image: linear-gradient(to bottom,
+    rgba(0, 0, 0, .3) 0% , 
+    rgba(0, 0, 0, 0) 25% , 
+    rgba(0, 0, 0, 0) 50% , 
+    rgba(0, 0, 0, 0) 75% , 
+    rgba(0, 0, 0, .3) 100% );
+    box-shadow: inset 0px 0px 12px;
+    border-radius: 12px;
+  }
+  
+  .roller-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    height: 60px;
+    /* background-color: #eee; */
+    background-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, .1) 0%,
+      rgba(0, 0, 0, .2) 50%,
+      rgba(0, 0, 0, .25) 75%,
+      rgba(0, 0, 0, .1) 100%,
+      );
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, .12);
+    border-top: 1px solid rgba(0, 0, 0, .12);
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    pointer-events: none;
+  }
+  .roller li:last-child {
+    margin-bottom: 120px;
+  }
+</style>
+<body>
+  <div class="roller-wrapper">
+    <ul class="roller">
+      <li></li>
+      <li></li>
+      <li>iPhone 12pro</li>
+      <li>iPhone 12</li>
+      <li>iPhone 12 mini</li>
+      <li>iPhone SE </li>
+      <li>iPhone 11 </li>
+      <li>iPhone XR </li>
+      <li>iPhone XS</li>
+      <li>iPhone X </li>
+    </ul>
+  </div>
+</body>
+</html>

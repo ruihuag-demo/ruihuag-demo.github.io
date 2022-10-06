@@ -1,0 +1,1566 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <!-- 基于webkit内核常用网站的高速浏览 -->
+  <meta name="renderer" content="webkit" />
+  <!-- 用最高版本的模式显示内容 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,Chrome=1" />
+  <script>
+    var channel = "首页>上海银行首页";
+    var strs = new Array();
+    strs = channel.split(">");
+    channel = "";
+    for (i = strs.length - 1; i > 1; i--) {
+      channel += strs[i] + " - ";
+    }
+    document.write("<title>" + channel + "上海银行官方网站</title>");
+    document.write("<meta name='keywords' content='" + channel + "上海银行官方网站'/>");
+  </script>
+  <script type="text/javascript">
+    // if(window.location.protocol == "https:"){
+    //  window.location.href = "http://csportal.bosc.cn:8010/zh/"+ window.location.pathname;
+    // }
+    var getValue = function (pram1) {
+      var str = window.location.search;
+      if (str.indexOf(pram1) != -1) {
+        var pos_start = str.indexOf(pram1) + pram1.length + 1;
+        var pos_end = str.indexOf("&", pos_start);
+        if (pos_end == -1) {
+          return str.substring(pos_start);
+        } else {
+          return str.substring(pos_start, pos_end);
+        }
+      } else {
+        return "";
+      }
+    };
+    var desktop = getValue("desktop");
+    if (desktop != 1) {
+      var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "ucweb", "skyfire");
+      var browser = navigator.userAgent.toLowerCase();
+      var isMobile = false;
+      for (var i = 0; i < mobileAgent.length; i++) {
+        if (browser.indexOf(mobileAgent[i]) != -1) {
+          isMobile = true;
+          //alert(mobileAgent[i]); 
+          location.href = '/m/home/';
+          break;
+        }
+      }
+    }
+  </script>
+  <!-- START Public CSS -->
+  <link rel="stylesheet" type="text/css" href="/images/global_v0.0.0.css?i=1">
+  <script type="text/javascript" src="/images/jquery.min.js"></script>
+  <!-- END Public CSS -->
+  <!-- START Plugin CSS -->
+  <link rel="stylesheet" type="text/css" id="swiperCss" href="/images/idangerous.swiper2.7.6.css" />
+  <link rel="stylesheet" type="text/css" href="/images/home_page.css" />
+  <!-- END Plugin CSS -->
+  <!-- START head CSS -->
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=8">
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
+  <meta http-equiv="X-UA-Compatible" content="IE=10">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="format-detection" content="telephone=no" />
+  <!--[if lt IE 9]>
+<script src="/images/html5shiv.min.js"></script>
+<script src="/images/respond.min.js"></script>
+<![endif]-->
+  <!-- END head CSS -->
+  <style>
+    .hot,
+    .per_hot {
+      border-radius: 3px;
+      background: #ed2c0e;
+      font-size: 14px;
+      margin-left: 6px;
+      padding: 2px;
+      color: #FFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="width_control js_width_control">
+    <!-- START header -->
+    <style>
+      .container .top_nav .width_content .nav_child .childLi {
+        position: relative
+      }
+      .container .top_nav .width_content .nav_child .childLi .p1 {
+        display: inline-block;
+        width: 35px;
+        height: 1px;
+        position: absolute;
+        top: 50px;
+        left: 25px;
+        background: #6a6a6a;
+      }
+      .container .top_nav .width_content .nav_child .childLi li.childLi_title {
+        padding-bottom: 10px;
+        border-bottom: 0;
+        margin-bottom: 10px;
+      }
+    </style>
+    <div class="container container-header">
+      <div class="top_bray"> 
+        <div class="width_content width_main">
+          <div class="box">
+            <div class="top_language"><a href="/zh/sy/jrxfzqy/jrxfzqy/">金融消费者权益保护</a></div>
+            <div class="top_language"><a href="/zh/sy/khfw/lxwm/">客户服务</a></div>
+            <!-- <div class="top_language dynamic"><a href="/zh/jrsh/jrsh_zy/tzzgx/gsgg/">公司公告</a></div> -->
+            <div class="top_language"><a href="https://bosc.zhiye.com/index" target="_blank">人才招聘</a></div>
+            <div class="top_language1"><a id="StranLink" href="javascript:StranBody()" title="點擊以繁體中文方式浏覽">繁體</a> |
+              <a id="StranLink1" href="javascript:StranBody1()" title="点击以简体中文方式浏览">简体</a>
+            </div>
+            <div class="top_language"><a href="/en/">EN</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="top_search">
+        <div class="width_content width_main">
+          <a href="/zh/"><img src="/images/logo.png" class="logo" /></a>
+          <div class="slogan">智慧金融·专业服务</div>
+          <div class="search_box">
+            <form action="/zh/inc/search.shtml" method="get">
+              <input type="text" name="keyword" class="search_input" value="请输入关键词" onblur="if(this.value=='') this.value='请输入关键词';this.style.color='#dfdfdf';"
+                onfocus="if(this.value=='请输入关键词') this.value='';this.style.color='#323232';" />
+              <input type="hidden" name="channelid" value="273772" />
+              <button class="search_go" type="submit"></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="top_nav">
+        <div class="width_content width_main">
+          <div class="nav_list">
+            <div class="nav_li"><a href="/zh/" target="_self">首页</a></div>
+            <div class="nav_li"><a href="/zh/gryw/" title="个人业务">个人业务</a>
+              <div class="nav_child">
+                <ul class="childLi">
+                  <li class="childLi_title"><a>投资理财</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gryw/tzlc/tzpz/" title="投资配置">投资配置
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/tzlc/lc/" title="理财">理财
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/tzlc/jj/" title="基金">基金
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/tzlc/bx/" title="保险">保险
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/tzlc/gjs/" title="贵金属">贵金属
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/tzlc/xt/" title="信托">信托
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/tzlc/gz/" title="国债">国债
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/tzlc/gtz1/" title="柜台债">柜台债
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/gryw/tzlc/grxxcxpt/" target="_blank" title="个人信息查询平台">个人信息查询平台
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/gryw/tzlc/xsrycx/" target="_blank" title="理财产品销售人员信息查询平台">理财产品销售人员信息查询平台
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/tzlc/KJLCT/" title="跨境理财通">跨境理财通
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>银行卡与存款服务</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gryw/yhkyckfw/rmjjksq/" title="热门借记卡申请">热门借记卡申请
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/yhkyckfw/gdjjk/" title="高端借记卡">高端借记卡
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/yhkyckfw/grck/" title="个人存款">个人存款
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/yhkyckfw/whyw/" title="外汇业务">外汇业务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/yhkyckfw/blfw/" title="便利服务">便利服务
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>贷款服务</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gryw/dkfw/grdk/" title="个人消费类贷款">个人消费类贷款<img class="hot_icon" src="/../../images/hot.gif" />
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/dkfw/grgfdk/" title="个人购房类贷款">个人购房类贷款
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/dkfw/grjyxdk/" title="个人经营性贷款">个人经营性贷款
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/dkfw/qtxgnr/" title="其他贷款服务">其他贷款服务
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>贵宾服务计划</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gryw/gbfwjh/gbbjkh/" title="贵宾白金客户">贵宾白金客户
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/gbfwjh/cfxzkh/" title="财富星钻客户">财富星钻客户
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/gbfwjh/sxhjkh/" title="私行黑金客户">私行黑金客户
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>养老金融</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gryw/yljr/mhshk/" title="美好生活卡申领">美好生活卡申领
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/yljr/ylzxjm/" title="养老专项减免">养老专项减免
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/yljr/ylzzfw/" title="养老增值服务">养老增值服务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/yljr/ylj_ylzscp/" title="养老专属产品">养老专属产品
+                    </a>
+                  </li>
+                  <li><a href="/zh/gryw/yljr/rdhd/" title="热点活动">热点活动
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ebanks.bankofshanghai.com/pweb/LGOAnnuityApply.do?_locale=zh_CN" target="_blank" title="立即成为养老金客户">立即成为养老金客户
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>个人电子银行</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gryw/grdzyh/grsjyh/" title="个人手机银行">个人手机银行 </a>
+                  </li>
+                  <li><a href="/zh/gryw/grdzyh/grwsyh/" title="个人网上银行">个人网上银行 </a>
+                  </li>
+                  <li><a href="/zh/gryw/grdzyh/grwxyh/" title="个人微信银行">个人微信银行 </a>
+                  </li>
+                  <li><a href="/zh/gryw/grdzyh/wszf/" title="网上支付">网上支付 </a>
+                  </li>
+                  <li><a href="/zh/gryw/grdzyh/sskx/" title="上行快线">上行快线 </a>
+                  </li>
+                  <li><a href="/zh/gryw/grdzyh/dhyh/" title="电话银行">电话银行 </a>
+                  </li>
+                  <li><a href="/zh/gryw/grdzyh/dzxy/" title="电子协议">电子协议 </a>
+                  </li>
+                  <li><a href="/zh/gryw/grdzyh/zngyj/" title="智能柜员机">智能柜员机 </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="nav_li"><a href="/zh/xyk/" title="信用卡">信用卡</a>
+              <div class="nav_child">
+                <ul class="childLi">
+                  <li class="childLi_title"><a>信用卡申请</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/xyk/xyksq/kzjs/" title="卡种介绍及申请">卡种介绍及申请<img class="hot_icon" src="/../../images/hot.gif" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ebanks.bankofshanghai.com/pweb/LogoutCreditApplyProQryPre.do?_locale=zh_CN" target="_blank" title="申请进度查询">申请进度查询
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ebanks.bankofshanghai.com/pweb/LogoutCreditActivePre.do?_locale=zh_CN" target="_blank" title="信用卡启用">信用卡启用
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>信用卡账单</a></li>
+                  <i class="p1"></i>
+                  <li>
+                    <a href="https://ebanks.bankofshanghai.com/pweb/MiddleLogin.do?_locale=zh_CN&LoginType=R&TransType=1" target="_blank" title="账单查询" target=""> 账单查询 <img
+                        class="hot_icon" src="/../../images/news.gif" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ebanks.bankofshanghai.com/pweb/LogoutCreditBillSignPre.do?_locale=zh_CN" target="_blank" title="信用卡电子账单签约" target=""> 信用卡电子账单签约
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>分期业务</a></li>
+                  <i class="p1"></i>
+                  <li>
+                    <a href="/zh/xyk/fqyw/202004/t20200426_13189.shtml" title="账单分期" target="">账单分期<img class="hot_icon" src="/../../images/hot.gif" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/xyk/fqyw/202004/t20200426_13188.shtml" title="现金分期" target="">现金分期
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/xyk/fqyw/202004/t20200426_13186.shtml" title="汽车分期" target="">汽车分期<img class="hot_icon" src="/../../images/news.gif" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ebanks.bankofshanghai.com/pweb/MiddleLogin.do?_locale=zh_CN&amp;LoginType=R&amp;TransType=5" target="_blank" title="分期管理" target=""> 分期管理
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ebanks.bankofshanghai.com/pweb/CreditInstalmentApprovalStart.do?_locale=zh_CN" target="_blank" title="汽车分期额度查询" target=""> 汽车分期额度查询
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/xyk/fqyw/202008/t20200803_36871.shtml" title="家装分期" target="">家装分期
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/xyk/fqyw/202008/t20200803_36872.shtml" title="分期卡" target="">分期卡
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/xyk/fqyw/202004/t20200426_13187.shtml" title="自动分期" target="">自动分期
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>惠享生活</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/xyk/hxsh/rmhd/" title="热门活动">热门活动<img class="hot_icon" src="/../../images/hot.gif" />
+                    </a>
+                  </li>
+                  <li><a href="/zh/xyk/hxsh/jwfw/" title="高端·境外">高端·境外
+                    </a>
+                  </li>
+                  <li><a href="/zh/xyk/hxsh/jfzq/" title="积分专区">积分专区
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>都市生活圈</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/xyk/dssq/sq/" title="商圈">商圈
+                    </a>
+                  </li>
+                  <li><a href="/zh/xyk/dssq/ms/" title="美食">美食
+                    </a>
+                  </li>
+                  <li><a href="/zh/xyk/dssq/thsh/" title="特惠商户">特惠商户
+                    </a>
+                  </li>
+                  <li><a href="/zh/xyk/dssq/ysf/" title="云闪付">云闪付
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>信用卡服务指南</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/xyk/fwzn/zchyjsfbz/" title="合约及收费标准">合约及收费标准 </a>
+                  </li>
+                  <li><a href="/zh/xyk/fwzn/possd/" title="POS收单业务">POS收单业务 </a>
+                  </li>
+                  <li><a href="/zh/xyk/fwzn/sbzn/" title="申办指南">申办指南 </a>
+                  </li>
+                  <li><a href="/zh/xyk/fwzn/cjwt/" title="常见问题">常见问题 </a>
+                  </li>
+                  <li><a href="/zh/xyk/fwzn/hkzn/" title="还款指南">还款指南 </a>
+                  </li>
+                  <li><a href="/zh/xyk/fwzn/khzn/" title="客户指南">客户指南 </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="nav_li"><a href="/zh/gsjr/" title="公司金融">公司金融</a>
+              <div class="nav_child">
+                <ul class="childLi">
+                  <li class="childLi_title"><a>公司业务</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gsjr/gsyw/ckyw/" title="存款业务">存款业务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/gsyw/dkyw/" title="贷款业务">贷款业务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/gsyw/zjyw/" title="中间业务">中间业务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/gsyw/jsyw/" title="结算业务">结算业务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/gsyw/ywzxsq/" title="业务在线申请">业务在线申请
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>交易银行</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gsjr/jyyh/gyljryw/" title="供应链金融业务">供应链金融业务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/jyyh/xjglyw/" title="现金管理业务">现金管理业务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/jyyh/zcc/" title="资产池业务">资产池业务
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>跨境业务</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gsjr/kjyw/ts/" title="特色业务">特色业务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/kjyw/wbcdk/" title="外币存贷款">外币存贷款
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/kjyw/gjjs/" title="国际结算">国际结算
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/kjyw/myrz/" title="贸易融资">贸易融资
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/kjyw/dkwhjy/" title="代客外汇交易">代客外汇交易
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/kjyw/whdl/" title="外汇担保">外汇担保
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/kjyw/kjrmb/" title="跨境人民币">跨境人民币
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>企业财富管理</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gsjr/qycfgl/llccp/" title="理财产品">理财产品
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/qycfgl/gmjj/" title="公募基金">公募基金
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/qycfgl/qszgjh/" title="券商资管计划">券商资管计划
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/qycfgl/xtjh/" title="信托计划">信托计划
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/qycfgl/qt2/" title="其他">其他
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>投行业务</a></li>
+                  <i class="p1"></i>
+                  <li>
+                    <a href="/zh/gsjr/shyw/202003/t20200329_12954.shtml" title="债券融资产品" target="">债券融资产品
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/gsjr/shyw/202003/t20200329_12955.shtml" title="结构融资产品" target="">结构融资产品
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/gsjr/shyw/202003/t20200329_12956.shtml" title="并购重组产品" target="">并购重组产品
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/zh/gsjr/shyw/202003/t20200329_12958.shtml" title="股权融资产品" target="">股权融资产品
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>资金业务</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gsjr/zjyw/hbscyw/" title="货币市场业务">货币市场业务 </a>
+                  </li>
+                  <li><a href="/zh/gsjr/zjyw/zjjyspyw/" title="债券及衍生品业务">债券及衍生品业务 </a>
+                  </li>
+                  <li><a href="/zh/gsjr/zjyw/syhp/" title="商业汇票转贴现业务">商业汇票转贴现业务 </a>
+                  </li>
+                  <li><a href="/zh/gsjr/zjyw/hjyw/" title="黄金业务">黄金业务 </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>金融同业</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gsjr/tyjr/thyw/" title="金融同业业务">金融同业业务 </a>
+                  </li>
+                  <li><a href="/zh/gsjr/tyjr/tgyw/" title="资产托管业务">资产托管业务 </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>政府与公共项目业务</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gsjr/zfyggxm/202003/t20200329_12978.shtml" title="国库单一账户" target=""> 国库单一账户
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/zfyggxm/202003/t20200329_12979.shtml" title="非税收入收缴业务" target=""> 非税收入收缴业务
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/zfyggxm/202003/t20200329_12984.shtml" title="维修资金托管" target=""> 维修资金托管
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/zfyggxm/202003/t20200329_12989.shtml" title="智慧医疗" target=""> 智慧医疗
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/zfyggxm/202003/t20200329_12986.shtml" title="" 加贸通"线上融资平台" target=""> "加贸通"线上融资平台
+                    </a>
+                  </li>
+                  <li><a href="/zh/gsjr/zfyggxm/202003/t20200329_12987.shtml" title="" 航付通"航运金融电子支付业务" target=""> "航付通"航运金融电子支付业务
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>企业电子银行</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/gsjr/qydzyh/qywsyh/" title="企业网上银行">企业网上银行 </a>
+                  </li>
+                  <li><a href="/zh/gsjr/qydzyh/qysjyh/" title="企业手机银行">企业手机银行 </a>
+                  </li>
+                  <li><a href="/zh/gsjr/qydzyh/qywxyh/" title="企业微信银行">企业微信银行 </a>
+                  </li>
+                  <li><a href="/zh/gsjr/qydzyh/dhyh/" title="企业电话银行">企业电话银行 </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="nav_li"><a href="/zh/phjr/" title="普惠金融">普惠金融</a>
+              <div class="nav_child">
+                <ul class="childLi">
+                  <li class="childLi_title"><a>授信申请</a></li>
+                  <i class="p1"></i>
+                  <li>
+                    <a href="https://ibank.bankofshanghai.com/eweb/vx_zh_CN/PrmsFirstApprovel/PrmsFirstApprovel.html" target="_blank" title="宅即贷">宅即贷
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ibank.bankofshanghai.com/eweb/vx_zh_CN/OtherCreditApply/OtherCreditApply.html" target="_blank" title="其他授信产品">其他授信产品
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ibank.bankofshanghai.com/eweb/vx_zh_CN/CreditApplicationResQry/ApplicationResQry.html" target="_blank" title="申请进度查询">申请进度查询
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>产品服务</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/phjr/cpfw/jcjrl/" title="基础融资类">基础融资类
+                    </a>
+                  </li>
+                  <li><a href="/zh/phjr/cpfw/kjjrl/" title="科创金融类">科创金融类
+                    </a>
+                  </li>
+                  <li><a href="/zh/phjr/cpfw/zxjrl/" title="在线金融类">在线金融类
+                    </a>
+                  </li>
+                  <li><a href="/zh/phjr/cpfw/zhjrfwl/" title="综合金融服务类">综合金融服务类
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>开户申请</a></li>
+                  <i class="p1"></i>
+                  <li>
+                    <a href="https://ibank.bankofshanghai.com/eweb/vx_zh_CN/OnlineApply/UnitbankAccountonlineApply.html" target="_blank" title="单位开户申请">单位开户申请
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ibank.bankofshanghai.com/eweb/vx_zh_CN/OnlineApply/UnitSubscriptionlineApply.html" target="_blank" title="单位签约业务在线申请">单位签约业务在线申请
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>服务指南</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/phjr/fwzn/sqzl/" title="申请资料">申请资料
+                    </a>
+                  </li>
+                  <li><a href="/zh/phjr/fwzn/cgal/" title="成功案例">成功案例
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="nav_li"><a href="/zh/jrsh/" title="信息公开">信息公开</a>
+              <div class="nav_child">
+                <ul class="childLi">
+                  <li class="childLi_title"><a>上海银行概况</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/jrsh/shyhgk/gk/" title="上海银行概况">上海银行概况
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/shyhgk/zzjg/" title="组织架构">组织架构
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/shyhgk/qywh/" title="企业文化">企业文化
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/shyhgk/mtkshyh/" title="媒体看上海银行">媒体看上海银行
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/shyhgk/xwkds/" title="新闻快递">新闻快递
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>投资者关系</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/jrsh/tzzgx/jbzd/" title="基本制度">基本制度
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/tzzgx/gsgg/" title="公司公告">公司公告
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/tzzgx/dqbg/" title="定期报告">定期报告
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/tzzgx/shzr/" title="社会责任">社会责任
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/tzzgx/jgzb/" title="监管资本">监管资本
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/tzzgx/tzzbh/" title="投资者保护">投资者保护
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/tzzgx/tzzhd/" title="投资者互动">投资者互动
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/tzzgx/tzzly/" title="投资者留言">投资者留言
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/tzzgx/QT1/" title="其他">其他
+                    </a>
+                  </li>
+                </ul>
+                <ul class="childLi">
+                  <li class="childLi_title"><a>其他信息公开</a></li>
+                  <i class="p1"></i>
+                  <li><a href="/zh/jrsh/xxgk_1091/qyjbxx/" title="企业基本信息">企业基本信息
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/xxgk_1091/ywbj/" title="业务布局">业务布局
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/xxgk_1091/rsrm/" title="人力资源">人力资源
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/xxgk_1091/qywh/" title="企业文化">企业文化
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/xxgk_1091/shbgsj/" title="社会责任报告和实践">社会责任报告和实践
+                    </a>
+                  </li>
+                  <li><a href="/zh/jrsh/xxgk_1091/tzzxgqk/" title="与投资者相关的其他情况">与投资者相关的其他情况
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- <div class="nav_li"><a href="/zh/jrsh/" target="_self">今日上行</a></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END header -->
+    <div class="main_body" id="main">
+      <div class="main_content" id="content">
+        <div class="home_box">
+          <ul>
+            <a href="javascript:;" class="fixMenu_1">
+              <li class="guanwang common_bg common_animation"></li>
+            </a>
+            <li class="app common_bg common_animation">
+              <div class="app-logo common_animation">
+                <ul>
+                  <li>
+                    <img src="/images/BK_code.png" alt="" />
+                    <p class="code_text">手机银行</p>
+                  </li>
+                  <li>
+                    <img src="/images/qy_android.jpg" alt="" />
+                    <p class="code_text">企业银行-android</p>
+                  </li>
+                  <li>
+                    <img src="/images/qy_IOS.jpg" alt="" />
+                    <p class="code_text">企业银行-IOS</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="wexin common_bg common_animation">
+              <div class="wexin-logo common_animation">
+                <ul>
+                  <li>
+                    <img src="/images/wx_code1.png" alt="" />
+                    <p class="code_text">个人微信银行</p>
+                  </li>
+                  <li>
+                    <img src="/images/wx_code2.png" alt="" />
+                    <p class="code_text">企业微信银行</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="dt_finance common_bg common_animation">
+              <div class="finance-logo">
+                <ul>
+                  <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/whpj/" title="外汇牌价">外汇牌价</a></li>
+                  <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/gjsspj/" title="贵金属收盘价">贵金属收盘价</a></li>
+                  <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/jjxs/" title="基金销售">基金销售</a></li>
+                  <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/cdkll/" title="存贷款利率">存贷款利率</a></li>
+                  <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/dxjj/" title="代销基金净值">代销基金净值</a></li>
+                  <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/gslc/" title="公司理财产品">公司理财产品</a></li>
+                  <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/grlc/" title="个人理财产品">个人理财产品</a></li>
+                  <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/fwjmb/" title="服务价目">服务价目</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="top common_bg common_animation"></li>
+          </ul>
+        </div>
+        <div class="mainPageDiv">
+          <div class="mainPage pageBg1">
+            <div class="mainPageContent">
+              <!--inc_banner.shtml begin-->
+              <div class="bannerBox">
+                <!----登录 begin--------->
+                <div class="banner_fix">
+                  <div class="homeLogon person_bank">
+                    <div class="xbBox xbBoxlogin_1"></div>
+                    <a href="https://ebanks.bankofshanghai.com/pweb/prelogin.do?LoginType=R&_locale=zh_CN" target="_blank" class=" clickubas" docid="13114" doctitle="个人网银登录"
+                      siteid="7" chid="171" chname="网银登录" sitename="上海银行">个人网银登录</a>
+                  </div>
+                  <div class="homeLogon mobile_bank">
+                    <div class="xbBox xbBoxlogin_2"></div>
+                    <a href="/zh/gryw/grdzyh/grsjyh/202003/t20200329_12854.shtml" class=" clickubas" docid="32449" doctitle="手机银行下载" siteid="7" chid="171" chname="网银登录"
+                      sitename="上海银行">手机银行下载</a>
+                  </div>
+                  <div class="homeLogon company_bank">
+                    <div class="xbBox xbBoxlogin_3"></div>
+                    <a href="https://ibank.bankofshanghai.com/eweb/vx_zh_CN/login.html?LoginType=R&_locale=zh_CN#/$1" target="_blank" class=" clickubas" docid="13115"
+                      doctitle="企业网银登录" siteid="7" chid="171" chname="网银登录" sitename="上海银行">企业网银登录</a>
+                  </div>
+                  <div class="homeLogon cash_manage">
+                    <div class="xbBox xbBoxlogin_4"></div>
+                    <a href="https://cash.bosc.cn/CM/index.do" target="_blank" class=" clickubas" docid="13117" doctitle="现金管理平台" siteid="7" chid="171" chname="网银登录"
+                      sitename="上海银行">现金管理平台</a>
+                  </div>
+                </div>
+                <!----登录 end--------->
+                <div class="banner">
+                  <div class="swiper-container" id="bannerContainer">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div style="width: 100%;height: 426px;position: relative;overflow: hidden;">
+                          <a href="https://bosc.zhiye.com/campus" target="_self">
+                            <img style="width: 2000px;height: 426px;position: absolute;left: 50%;margin-left: -1000px;" src="./sy/banner/202201/W020220207400896673540.jpg"
+                              alt="19721173.jpg" />
+                          </a>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div style="width: 100%;height: 426px;position: relative;overflow: hidden;">
+                          <a href="./sy/banner/202111/t20211129_48883.shtml" target="_self">
+                            <img style="width: 2000px;height: 426px;position: absolute;left: 50%;margin-left: -1000px;" src="./sy/banner/202111/W020211129595864026775.png"
+                              alt="官网首页广告 (1).png" />
+                          </a>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div style="width: 100%;height: 426px;position: relative;overflow: hidden;">
+                          <a href="https://www.bosc.cn/zh/sy/jrxfzqy/jrxfzqy/202106/t20210610_45732.shtml" target="_self">
+                            <img style="width: 2000px;height: 426px;position: absolute;left: 50%;margin-left: -1000px;" src="./sy/banner/202106/W020210610390007715185.jpg"
+                              alt="banner.jpg" />
+                          </a>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div style="width: 100%;height: 426px;position: relative;overflow: hidden;">
+                          <a href="#" target="_self">
+                            <img style="width: 2000px;height: 426px;position: absolute;left: 50%;margin-left: -1000px;" src="./sy/banner/202103/W020210323492238952978.jpg"
+                              alt="pc门户-关于防范短信诈骗的风险提示3.jpg" />
+                          </a>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div style="width: 100%;height: 426px;position: relative;overflow: hidden;">
+                          <a href="./sy/banner/202102/t20210223_44243.shtml" target="_self">
+                            <img style="width: 2000px;height: 426px;position: absolute;left: 50%;margin-left: -1000px;" src="./sy/banner/202102/W020220221302213685223.jpg"
+                              alt="PC门户首页轮播1920-425.jpg" />
+                          </a>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div style="width: 100%;height: 426px;position: relative;overflow: hidden;">
+                          <a href="#" target="_self">
+                            <img style="width: 2000px;height: 426px;position: absolute;left: 50%;margin-left: -1000px;" src="./sy/banner/202007/W020201126371112506654.png"
+                              alt="首页banner.png" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination" id="bannerPagination"></div>
+                  <!----通用通知公告 begin--------->
+                  <div class="barrage">
+                    <!-- Swiper -->
+                    <div class="swiper-container" id="barrageContainer">
+                      <div class="swiper-wrapper">
+                      </div>
+                      <!-- Add Pagination -->
+                    </div>
+                  </div>
+                  <!----通用通知公告 end--------->
+                </div>
+              </div>
+              <!--inc_banner.shtml end-->
+            </div>
+            <!--inc_banner.shtml end-->
+          </div>
+          <div class="mainPageFooter">
+            <div class="overview">
+              <div class="width_content">
+                <ul class="overWai">
+                  <li class="waiLi waiLi1">
+                    <a href="/zh/sy/sy_menu/register/">
+                      <div class="overview_l">
+                        <div class="xbBox waiImg 申请与注册 xbBoxOver_1"></div>
+                      </div>
+                      <div class="overview_r">
+                        <h3>在线申请</h3>
+                        <p>个人及企业在线快捷申请</p>
+                      </div>
+                    </a>
+                    <ul class="overNei">
+                      <li><a href="/zh/xyk/xyksq/kzjs/" title="信用卡申请" target="_self">信用卡申请</a></li>
+                      <li><a href="/zh/gryw/yhkyckfw/rmjjksq/202003/t20200329_12816.shtml" title="借记卡申请" target="_self">借记卡申请</a></li>
+                      <li><a href="https://ibank.bankofshanghai.com/eweb/vx_zh_CN/OnlineApply/UnitbankAccountonlineApply.html" title="单位开户申请" target="_self">单位开户申请</a></li>
+                      <li><a href="./sy/sy_menu/register/" target="_self">更多 <img src="/images/overviewQt.png" /></a></li>
+                    </ul>
+                  </li>
+                  <li class="waiLi waiLi2">
+                    <a href="/zh/sy/sy_menu/cpfw/">
+                      <div class="overview_l">
+                        <div class="xbBox waiImg 产品服务 xbBoxOver_2"></div>
+                      </div>
+                      <div class="overview_r">
+                        <h3>产品服务</h3>
+                        <p>银行产品推荐</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="waiLi waiLi3">
+                    <a href="/zh/sy/sy_menu/wdcx/">
+                      <div class="overview_l">
+                        <div class="xbBox waiImg 网点查询 xbBoxOver_3"></div>
+                      </div>
+                      <div class="overview_r">
+                        <h3>网点查询</h3>
+                        <p>查询最新网点信息</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="waiLi waiLi4">
+                    <a href="/zh/dtjr/">
+                      <div class="overview_l">
+                        <div class="xbBox waiImg 新闻快递 xbBoxOver_4"></div>
+                      </div>
+                      <div class="overview_r">
+                        <h3>动态金融信息</h3>
+                        <p>行情 牌价 服务价目表</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+                <a href="/zh/sy/tzgg/202011/t20201128_39176.shtml"><img class="ckbxbz" src="/images/ckbxbz_0122.jpg" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="index_card">
+          <div class="width_content">
+            <div class="titleCard">
+              <div class="title_content">
+                <div class="index-person-header title-header-width-padding">
+                  <div class="index-person-header-left">
+                    <div class="left-icon"></div>
+                    <div class="left-title">
+                      <div class="left-title-text">信用卡</div>
+                      <div class="left-title-description">提供更多金融服务场景</div>
+                    </div>
+                  </div>
+                  <div class="index-person-header-right">
+                    <a href="./xyk/">
+                      <span>更多</span>
+                      <img src="/images/left_more.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div class="cardLists">
+              <ul class="card_products">
+                <a href="/zh/xyk/xyksq/kzjs/">
+                  <li class="onlineSq">
+                    <h5 class="product_title">信用卡申请
+                    </h5>
+                    <p>选卡种、填资料 , 3分钟完成</p>
+                    <img class="icon_product" src="./sy/xyk/202004/W020201027560389260575.png" alt="" />
+                  </li>
+                </a>
+                <a href="/zh/xyk/hxsh/jfzq/">
+                  <li class="onlineJf">
+                    <h5 class="product_title">积分专区
+                    </h5>
+                    <p>海量商品随心换</p>
+                    <img class="icon_product" src="./sy/xyk/202004/W020201116576080416615.png" alt="" />
+                  </li>
+                </a>
+                <a href="/zh/xyk/hxsh/rmhd/202112/t20211223_49310.shtml">
+                  <li class="card_banner" style="margin-right: 0">
+                    <div class="card-banner-left">
+                      <h3 class="card-banner-title card-banner-title-activity-one">周五美好生活</h3>
+                      <div class="card-banner-title-explain card-banner-title-activity-one">盒以解忧，马上立减</div>
+                    </div>
+                    <div class="card-banner-right">
+                      <img src="./sy/xyk/zthd/202004/W020211223364422436700.jpg" alt="" class="card-banner-right-img" />
+                    </div>
+                  </li>
+                </a>
+              </ul>
+              <ul class="card_products">
+                <a href="/zh/xyk/xyksq/kzjs/202004/t20200426_12553.shtml">
+                  <li class="card_banner">
+                    <div class="card-banner-left">
+                      <h3 class="card-banner-title card-banner-title-activity-two">小刘鸭主题信用卡</h3>
+                      <div class="card-banner-title-explain card-banner-title-activity-two-eaplain">小刘鸭正版授权卡面<br>丰富周边礼品</div>
+                    </div>
+                    <div class="card-banner-right">
+                      <img src="./sy/xyk/ztcp/202004/W020201027560747819274.png" alt="" class="card-banner-right-img" />
+                    </div>
+                  </li>
+                </a>
+                <a href="/zh/xyk/fqyw/">
+                  <li class="onlineSq">
+                    <h5 class="product_title">分期付款
+                    </h5>
+                    <p>账单轻松分 还款更灵活</p>
+                    <img class="icon_product" src="./sy/xyk/202004/W020201116576168501574.png" alt="" />
+                  </li>
+                </a>
+                <a href="/zh/xyk/hxsh/rmhd/">
+                  <li class="onlineJf" style="margin-right:0">
+                    <h5 class="product_title">热门活动
+                    </h5>
+                    <p>缤纷优惠享不停</p>
+                    <img class="icon_product" src="./sy/xyk/202004/W020201116576257252275.png" alt="" />
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="index_person">
+          <div class="width_content">
+            <div class="titleCard">
+              <div class="title_content">
+                <div class="index-person-header">
+                  <div class="index-person-header-left">
+                    <div class="left-icon"></div>
+                    <div class="left-title">
+                      <div class="left-title-text">个人业务</div>
+                      <div class="left-title-description">智慧引领财富 · 专业服务大众</div>
+                    </div>
+                  </div>
+                  <div class="index-person-header-right">
+                    <a href="./gryw/">
+                      <span>更多</span>
+                      <img src="/images/left_more.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+                <div class="personaltab">
+                  <span class="active">投资</span>
+                  <span class="">贷款</span>
+                </div>
+              </div>
+            </div>
+            <div class="itmeBox">
+              <div class="personal_tz personalitem metalList3">
+                <div class="personal-tz-left">
+                  <div class="personal-tz-left-top">
+                    <div class="personal-tz-left-top-item">
+                      <a href="./gryw/tzlc/lc/">
+                        <h3 class="personal-tz-left-top-item-title">理财</h3>
+                        <p class="personal-tz-left-top-item-abstract">优选资产</p>
+                      </a>
+                    </div>
+                    <div class="personal-tz-left-top-item">
+                      <a href="./gryw/tzlc/jj/zxcp/">
+                        <h3 class="personal-tz-left-top-item-title">基金</h3>
+                        <p class="personal-tz-left-top-item-abstract">投资便捷 轻松交易</p>
+                      </a>
+                    </div>
+                    <div class="personal-tz-left-top-item">
+                      <a href="./gryw/yhkyckfw/grck/">
+                        <h3 class="personal-tz-left-top-item-title">存款</h3>
+                        <p class="personal-tz-left-top-item-abstract">安全 稳健</p>
+                      </a>
+                    </div>
+                    <div class="personal-tz-left-top-item">
+                      <a href="./gryw/tzlc/bx/">
+                        <h3 class="personal-tz-left-top-item-title">保险</h3>
+                        <p class="personal-tz-left-top-item-abstract">高保障 好规划</p>
+                      </a>
+                    </div>
+                    <div class="personal-tz-left-top-item">
+                      <a href="./gryw/tzlc/gjs/swgjs/">
+                        <h3 class="personal-tz-left-top-item-title">贵金属</h3>
+                        <p class="personal-tz-left-top-item-abstract">品鉴传承</p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="personal-tz-bottom metalList1">
+                    <span id="noble_metal0" style="display:none;">
+                      519069,人气优选基金
+                    </span>
+                    <span id="noble_metal1" style="display:none;">
+                    </span>
+                  </div>
+                </div>
+                <span id="noble_metal3" style="display:none;">
+                  W2009901A,全年无休，随时申赎
+                </span>
+              </div>
+              <div class="personal_dk personalitem">
+                <ul class="product_dk">
+                  <a href="/zh/gryw/dkfw/grgfdk/202003/t20200329_12843.shtml" title="个人住房贷款">
+                    <li class="dk_list list01">
+                      <h4>个人住房贷款</h4>
+                      <p>便捷申请 还款方式灵活多样</p>
+                    </li>
+                  </a>
+                  <a href="/zh/gryw/dkfw/grjyxdk/" title="个人经营性贷款">
+                    <li class="dk_list list02">
+                      <h4>个人经营性贷款</h4>
+                      <p>快贷助经营 续贷不还本</p>
+                    </li>
+                  </a>
+                  <a href="/zh/gryw/dkfw/grgfdk/" title="个人商业用房贷款">
+                    <li class="dk_list list03">
+                      <h4>个人商业用房贷款</h4>
+                      <p>申请简单 还款快速</p>
+                    </li>
+                  </a>
+                  <a href="/zh/gryw/dkfw/qtxgnr/" title="其他贷款">
+                    <li class="dk_list list04">
+                      <h4>其他贷款</h4>
+                      <p>满足多种借款需求</p>
+                    </li>
+                  </a>
+                </ul>
+                <a href="./gryw/dkfw/">
+                  <ul class="elian">
+                    <h4>信义贷</h4>
+                    <i>信筑梦，义远行 </i><br><br>
+                    <p> 以信用方式，向符合条件的借款人发放
+                      用于本人及家庭合理消费用途的人民币贷款
+                    </p>
+                    <span class="btnDetail">查看详情</span>
+                  </ul>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inc_companyjr">
+          <div class="width_content">
+            <div class="titleCard">
+              <div class="title_content">
+                <div class="index-person-header title-header-width-padding">
+                  <div class="index-person-header-left">
+                    <div class="left-icon"></div>
+                    <div class="left-title">
+                      <div class="left-title-text">公司金融</div>
+                      <div class="left-title-description">创造 · 分享 · 共同成长</div>
+                    </div>
+                  </div>
+                  <div class="index-person-header-right">
+                    <a href="./gsjr/">
+                      <span>更多</span>
+                      <img src="/images/left_more.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="companyjr_b">
+              <ul class="online">
+                <a href="/zh/gsjr/gsyw/">
+                  <li>
+                    <div class="xbBox xbBoxcompany_1"></div>
+                    <div>
+                      <h4>公司业务</h4>
+                      <p>提供企业全面的金融服务</p>
+                    </div>
+                  </li>
+                </a>
+                <a href="/zh/gsjr/tyjr/thyw/">
+                  <li>
+                    <div class="xbBox xbBoxcompany_2"></div>
+                    <div>
+                      <h4>金融同业</h4>
+                      <p>同业合作 托管服务</p>
+                    </div>
+                  </li>
+                </a>
+                <a href="/zh/gsjr/kjyw/">
+                  <li>
+                    <div class="xbBox xbBoxcompany_3"></div>
+                    <div>
+                      <h4>跨境业务</h4>
+                      <p>提供个性化、高质量的跨境金融服务</p>
+                    </div>
+                  </li>
+                </a>
+                <a href="/zh/gsjr/shyw/">
+                  <li>
+                    <div class="xbBox xbBoxcompany_4"></div>
+                    <div>
+                      <h4>投行业务</h4>
+                      <p>债券融资 并购重组</p>
+                    </div>
+                  </li>
+                </a>
+              </ul>
+              <a href="/zh/gsjr/jyyh/gyljryw/202003/t20200329_12925.shtml" target="_self">
+                <div class="elian">
+                  <h4>上行“e”链<br>在线供应链金融服务平台</h4>
+                  <p>上行“e”链以“更智慧的金融“ 和“更专业的服务”, 服务实体经济 、助力普惠金融 </p>
+                  <span class="btn2Detail">查看详情</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="index_finance">
+          <div class="width_content">
+            <div class="titleCard">
+              <div class="title_content">
+                <div class="index-person-header title-header-width-padding">
+                  <div class="index-person-header-left">
+                    <div class="left-icon"></div>
+                    <div class="left-title">
+                      <div class="left-title-text">普惠金融</div>
+                      <div class="left-title-description">惠企发展 携手共赢</div>
+                    </div>
+                  </div>
+                  <div class="index-person-header-right">
+                    <a href="./phjr/">
+                      <span>更多</span>
+                      <img src="/images/left_more.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="finance_item">
+              <a href="https://ibank.bankofshanghai.com/eweb/vx_zh_CN/PrmsFirstApprovel/PrmsFirstApprovel.html" target="_blank">
+                <ul class="elian">
+                  <h4>宅即贷</h4>
+                  <p>快贷助经营 续贷不还本</p>
+                  <span class="btnDetail">查看详情</span>
+                </ul>
+              </a>
+              <ul class="product_dk">
+                <a href="/zh/phjr/cpfw/zxjrl/202007/t20200703_33345.shtml">
+                  <li class="dk_list finance01">
+                    <h4>在线金融类</h4>
+                    <p>普惠全在线金融产品</p>
+                  </li>
+                </a>
+                <a href="/zh/phjr/cpfw/kjjrl/">
+                  <li class="dk_list finance02">
+                    <h4>科创金融类</h4>
+                    <p>为科创小微企业量身定制</p>
+                  </li>
+                </a>
+                <a href="/zh/phjr/cpfw/jcjrl/">
+                  <li class="dk_list finance03">
+                    <h4>基础融资类</h4>
+                    <p>标准化融资产品，多种担保方式</p>
+                  </li>
+                </a>
+                <a href="/zh/phjr/cpfw/zhjrfwl/">
+                  <li class="dk_list finance04">
+                    <h4>综合金融服务类</h4>
+                    <p>涵盖结算、理财、跨境等多方位服务</p>
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="inc_companyjr index_BK">
+          <div class="width_content">
+            <div class="titleCard">
+              <div class="title_content">
+                <div class="index-person-header title-header-width-padding">
+                  <div class="index-person-header-left">
+                    <div class="left-icon"></div>
+                    <div class="left-title">
+                      <div class="left-title-text">今日上行</div>
+                      <div class="left-title-description">智慧金融 专业服务</div>
+                    </div>
+                  </div>
+                  <div class="index-person-header-right">
+                    <a href="./jrsh/">
+                      <span>更多</span>
+                      <img src="/images/left_more.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="companyjr_b">
+              <ul class="online">
+                <a href="/zh/jrsh/shyhgk/gk/">
+                  <li>
+                    <div class="xbBox xbBoxcompany_1"></div>
+                    <h4 class="com_title">上海银行概况</h4>
+                    <!-- <p></p> -->
+                  </li>
+                </a>
+                <a href="/zh/jrsh/tzzgx/gsgg/">
+                  <li>
+                    <div class="xbBox xbBoxcompany_2"></div>
+                    <h4 class="com_title">公司公告</h4>
+                    <!-- <p></p> -->
+                  </li>
+                </a>
+                <a href="/zh/jrsh/tzzgx/dqbg/">
+                  <li>
+                    <div class="xbBox xbBoxcompany_3"></div>
+                    <h4 class="com_title">定期报告</h4>
+                    <!-- <p></p> -->
+                  </li>
+                </a>
+                <a href="/zh/jrsh/shyhgk/xwkds/">
+                  <li>
+                    <div class="xbBox xbBoxcompany_4"></div>
+                    <h4 class="com_title">新闻快递</h4>
+                    <!-- <p></p> -->
+                  </li>
+                </a>
+              </ul>
+              <div class="BK_banner">
+                <img src="./sy/jrsh/jrsh_banner/202008/W020201027527350260861.png" alt="" />
+                <!--div class="play_icon"><img src="./sy/jrsh/jrsh_banner/202008/W020200814665729950233.png" alt="" /></div-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- END body -->
+  <!-- START footer -->
+  <div class="main_footer">
+    <div class="home_box">
+      <ul>
+        <a href="javascript:;" class="fixMenu_1">
+          <li class="guanwang common_bg common_animation"></li>
+        </a>
+        <li class="app common_bg common_animation">
+          <div class="app-logo common_animation">
+            <ul>
+              <li>
+                <img src="/images/BK_code.png" alt="" />
+                <p class="code_text">手机银行</p>
+              </li>
+              <li>
+                <img src="/images/qy_android.jpg" alt="" />
+                <p class="code_text">企业银行-android</p>
+              </li>
+              <li>
+                <img src="/images/qy_IOS.jpg" alt="" />
+                <p class="code_text">企业银行-IOS</p>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="wexin common_bg common_animation">
+          <div class="wexin-logo common_animation">
+            <ul>
+              <li>
+                <img src="/images/wx_code1.png" alt="" />
+                <p class="code_text">个人微信银行</p>
+              </li>
+              <li>
+                <img src="/images/wx_code2.png" alt="" />
+                <p class="code_text">企业微信银行</p>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="dt_finance common_bg common_animation">
+          <div class="finance-logo">
+            <ul>
+              <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/whpj/" title="外汇牌价">外汇牌价</a></li>
+              <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/gjsspj/" title="贵金属收盘价">贵金属收盘价</a></li>
+              <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/jjxs/" title="基金销售">基金销售</a></li>
+              <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/cdkll/" title="存贷款利率">存贷款利率</a></li>
+              <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/dxjj/" title="代销基金净值">代销基金净值</a></li>
+              <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/gslc/" title="公司理财产品">公司理财产品</a></li>
+              <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/grlc/" title="个人理财产品">个人理财产品</a></li>
+              <li style="right: 0;transition: all 0.3s ease 0s;"><a href="/zh/dtjr/fwjmb/" title="服务价目">服务价目</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="top common_bg common_animation"></li>
+      </ul>
+    </div>
+    <div class="footer_head">
+      <div class="width_content footer_content">
+        <div class="investment">
+          <div class="footer_list">
+            <h2>各地分行</h2>
+            <ul class="fh_bank">
+              <li><a href="https://www.bosc.cn/nbfh/" title="宁波">宁波</a></li>
+              <li><a href="https://www.bosc.cn/njfh/" title="南京">南京</a></li>
+              <li><a href="https://www.bosc.cn/hzfh/" title="杭州">杭州</a></li>
+              <li><a href="https://www.bosc.cn/tjfh/" title="天津">天津</a></li>
+            </ul>
+            <ul class="fh_bank">
+              <li><a href="https://www.bosc.cn/cdfh/" title="成都">成都</a></li>
+              <li><a href="https://www.bosc.cn/szfh/" title="深圳">深圳</a></li>
+              <li><a href="https://www.bosc.cn/bjfh/" title="北京">北京</a></li>
+              <li><a href="https://www.bosc.cn/suzfh/" title="苏州">苏州</a></li>
+            </ul>
+          </div>
+          <div class="footer_list">
+            <h2>合作伙伴</h2>
+            <ul>
+              <li><a href="http://xmeyy.pbc.gov.cn/misint/pages/unibiz2login/mdrslogin.jsf" title="人行小面额人民币预约" target='_blank'>人行小面额人民币预约</a></li>
+              <li><a href="https://cn.unionpay.com/upowhtml/cn/templates/index/index.html" title="中国银联" target='_blank'>中国银联</a></li>
+              <li><a href="https://www.scsb.com.tw/" title="台湾上海商业储蓄银行" target='_blank'>台湾上海商业储蓄银行</a></li>
+              <li><a href="http://www.shacombank.com.hk/" title="香港上海商业银行" target='_blank'>香港上海商业银行</a></li>
+              <li><a href="https://www.china-cba.net/" title="中国银行业协会" target='_blank'>中国银行业协会</a></li>
+            </ul>
+          </div>
+          <div class="footer_list">
+            <h2>子公司</h2>
+            <ul>
+              <li><a href="https://www.bosc-hk.com/" title="上银香港" target="_blank">上银香港</a></li>
+              <li><a href="https://www.boscinternational.com/" title="上银国际" target="_blank">上银国际</a></li>
+            </ul>
+          </div>
+          <div class="footer_list">
+            <h2><a class="footer_hover" href="https://www.bosc.cn/zh/inc/czyh/">村镇银行</a></h2>
+          </div>
+          <!-- <div class="footer_list">
+          <h2><a href="">网站地图</a></h2>
+        </div> -->
+        </div>
+        <div class="bk_code">
+          <div class="footer_list">
+            <h2>手机银行</h2>
+            <img src="/zh/inc/wx/202004/W020200814652295983399.png" alt="" />
+          </div>
+          <div class="footer_list">
+            <h2>微信银行</h2>
+            <img src="/zh/inc/wx/202004/W020200814652295540807.png" alt="" />
+          </div>
+          <div class="footer_list">
+            <h2>上行快线微信</h2>
+            <img src="/zh/inc/wx/202004/W020200814652295094984.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="footer_foot">
+        <div class="width_content">
+          <p class="foot_top">上海银行版权所有<i>|</i><img src="/images/bitmap.png" alt="" /><a href="http://beian.miit.gov.cn" target="_blank">沪ICP备14020744号</a><i>|</i><a
+              href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502003675" target="_blank"> 沪公网安备 31011502003675号 </a>
+            <i>|</i>本网站支持IPV6<span><a href="https://www.bosc.cn/zh/sy/khfw/lxwm/"><i>|</i>联系我们</a></span><span><a href="https://www.bosc.cn/zh/inc/map.shtml" title="网站地图"
+                target="_self"><i>|</i>网站地图</a></span><i>|</i><img src="/images/phone.png" alt="" /><span class="tel_phone">客户服务及投诉热线：95594</span>
+          </p>
+          <p class="foot_bottom"> 未经上海银行许可，任何组织或个人不得链接上海银行网站 </p>
+          <div class="imgList">
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502003675" target="_blank"><img src="/images/sh_wg.png" /></a>
+            <a href="http://www.zx110.org/" target="_blank"><img src="/images/inter_zx.png" /></a>
+            <a><img src="/images/icp.png" /></a>
+            <a href="https://ss.knet.cn/verifyseal.dll?sn=e17041031010767311luyk000000&ct=df&pa=ebuac3rHAkmXTMuf" target="_blank"><img src="/images/kxwz_0125.png" /></a>
+            <a href="https://si.trustutn.org/info?sn=708170323027630186866&amp;certType=1" target="_blank"><img src="/images/ji_pro.png" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="bmd" style="display: none;" rec='https://ebanks.bankofshanghai.com/'></span>
+  <span class="bmd" style="display: none;" rec='http://epw-mh.bosc:8021'></span>
+  <span class="bmd" style="display: none;" rec='http://epw-qj.bosc:8021'></span>
+  <span class="bmd" style="display: none;" rec='http://epw-jn.bosc:8021'></span>
+  <span class="bmd" style="display: none;" rec='http://epw-cz.bosc:8021'></span>
+  <!-- END footer -->
+  </div>
+  <!-- START Public JS -->
+  <script src="/images/idangerous.swiper2.7.6.min.js"></script>
+  <script src="/images/laypage.js"></script>
+  <script src="/images/global.js"></script>
+  <script src="/images/jquery.json-2.4.min.js"></script>
+  <script src="/images/Std_StranJF.js"></script>
+  <script language='JavaScript' charset='utf-8' src='/ubas/js/count.js'></script>
+  <script language='JavaScript' charset='utf-8' src='/ubas/js/submit.js'></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var isInner = false;
+      $('a').each(function (index, el) {
+        var $this = $(this);
+        var href = $this.attr('href');
+        if (href == '#') {
+          $this.css('cursor', 'unset');
+        }
+      });
+      $.ajax({
+        'url': '/apiQry/apiQry/isInner',
+        'type': 'GET',
+        success: function (data) {
+          isInner = data.data.isInner;
+          if (isInner) {
+            var bmdArr = [];
+            $('.bmd').each(function (index, element) {
+              var rec = $(this).attr("rec");
+              bmdArr.push(rec);
+            })
+            $('a').each(function (index, el) {
+              var $this = $(this);
+              var origin = window.location.protocol + "//" + window.location.host;
+              var orgLen = origin.length;
+              var href = $this.attr('href');
+              if (href != undefined && href.substring(0, 4) == 'http') {
+                hrefSub = href.substring(0, orgLen);
+                if (hrefSub != origin) {
+                  var flag = true;
+                  for (var i = 0; i < bmdArr.length; i++) {
+                    var bmd = bmdArr[i];
+                    if (bmd == href.substring(0, bmd.length)) {
+                      flag = false;
+                    }
+                  }
+                  if (flag) {
+                    $this.attr('href', '/zh/inc/nwyhy/');
+                  }
+                }
+              }
+            });
+          }
+        }
+      })
+    })
+  </script>
+  <!-- END Public JS -->
+  <script type="text/javascript" src="/images/home_page.js"></script>
+  <script type="text/javascript" src="/images/jquery.cookie.js"></script>
+  <!-- START Plugin JS -->
+  <script>
+    $(function () {
+      function getCookie(cookieName) {
+        var cookieValue = '';
+        if (document.cookie && document.cookie != '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            cookie = cookie.replace(/^\s/, "");
+            cookie = cookie.split("=");
+            if (cookie[0] == cookieName) {
+              cookieValue = cookie[1];
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      };
+      var skey = getCookie('hide_msg');
+      if (skey != '1') {
+        _height = $(window).height();
+        _width = $(window).width();
+        $("#tc_box").show();
+        $("#tc_con").show();
+        var box_width = $("#tc_con").width();
+        var box_height = $("#tc_con").height();
+        var tit_height = $("#tc_tit").height();
+        $("#tc_con").css({
+          'top': (_height - box_height) / 2 + 'px',
+          'left': (_width - box_width) / 2 + 'px'
+        })
+        $(".tc_ico").on('click', function () {
+          $("#tc_box,#tc_con").hide();
+        })
+      }
+    });
+    // $(function(){
+    // 	var exp = new Date();
+    // 	var nowTime = 86400 - (exp.getHours()*60*60 + exp.getMinutes()*60 + exp.getSeconds());
+    // 	exp.setTime(exp.getTime() + nowTime*1000);
+    // 	document.cookie = "hide_msg=1"+";expires="+exp.toGMTString();
+    // });
+    // 飄浮廣告cookie操作（今日不再顯示）
+    $(function () {
+      // 讀取cookie，把對應的廣告設為不可見
+      if ($.cookie('ad_id_cookie')) {
+        var arr_id = new Array();
+        arr_id = $.cookie('ad_id_cookie').split(',');
+        for (var i = 0; i < arr_id.length; i++) {
+          $('#nodisplay' + arr_id[i]).parents('.tc_con').hide();
+        };
+      }
+      function openBankUrl(url) {
+        window.open(url);
+      }
+      // 寫入cookie操作
+      $('#tc_ico').click(function () {
+        // 把點擊關閉的廣告設為不可見
+        $(this).parents('.tc_con').slideUp();
+        // 如果勾選了‘今日不再顯示’
+        if ($("input[name='nodisplay']").is(':checked')) {
+          var ad_id = $(this).siblings('input:checkbox').val(); // 得到勾選的廣告id
+          // 如果cookie裏存在廣告id    
+          if ($.cookie('ad_id_cookie')) {
+            ad_id = $.cookie('ad_id_cookie') + ',' + ad_id; // 把cookie裏的id和新的id用","連接起來
+            ad_id = $.unique(ad_id.split(',').sort()); // 去掉重覆的id
+          }
+          // 寫入cookie
+          $.cookie('ad_id_cookie', ad_id, { expires: 1 });
+          var exp = new Date();
+          var nowTime = 86400 - (exp.getHours() * 60 * 60 + exp.getMinutes() * 60 + exp.getSeconds());
+          exp.setTime(exp.getTime() + nowTime * 1000);
+          document.cookie = "hide_msg=1" + ";expires=" + exp.toGMTString();
+        }
+      })
+    })
+  </script>
+  <!-- END Plugin JS -->
+</body>
+</html>

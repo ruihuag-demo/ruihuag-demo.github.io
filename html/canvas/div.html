@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.content,
+	.item {
+		border-radius: 50%;
+	}
+
+	.content {
+		width: 800px;
+		height: 800px;
+		border: 1px solid;
+		box-sizing: border-box;
+		position: relative;
+		transform-origin: 400px 400px;
+	}
+
+	* {
+		animation: all 1s;
+	}
+
+	.item {
+		width: 80px;
+		height: 80px;
+		position: absolute;
+		text-align: center;
+		line-height: 80px;
+		background: #eee;
+
+	}
+	.hiden{
+		width: 900px;
+		height: 500px;
+		background-color: #fff;
+		position: fixed;
+		bottom: 20px;
+		z-index: 99;
+	}
+</style>
+
+<body>
+	<div class="content">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+		<div class="item">4</div>
+		<div class="item">5</div>
+		<div class="item">6</div>
+		<div class="item">7</div>
+		<div class="item">8</div>
+	</div>
+	<div class="hiden"></div>
+	<script>
+		const content = document.querySelector('.content')
+		const items = document.querySelectorAll('.item')
+		const ct_w = 800
+		const i_w = 80
+		const tr = Math.sqrt((400 ** 2) / 2)
+		items.forEach((item, index) => {
+			if (index === 0) {
+				item.style.left = (ct_w - i_w) / 2 + 'px'
+				item.style.top = -i_w / 2 + 'px'
+			}
+
+			if (index === 1) {
+				item.style.left = ct_w / 2 + tr - 40 + 'px'
+				item.style.top = ct_w / 2 - tr - 40 + 'px'
+			}
+
+			if (index === 2) {
+				item.style.left = ct_w - i_w / 2 + 'px'
+				item.style.top = (ct_w - i_w) / 2 + 'px'
+			}
+
+			if (index === 3) {
+				item.style.left = ct_w / 2 + tr - 40 + 'px'
+				item.style.top = ct_w / 2 + tr - 40 + 'px'
+			}
+
+			if (index === 4) {
+				item.style.left = (ct_w - i_w) / 2 + 'px'
+				item.style.top = ct_w - i_w / 2 + 'px'
+			}
+
+			if (index === 5) {
+				item.style.left = ct_w / 2 - tr - 40 + 'px'
+				item.style.top = ct_w / 2 + tr - 40 + 'px'
+			}
+
+			if (index === 6) {
+				item.style.left = - i_w / 2 + 'px'
+				item.style.top = (ct_w - i_w) / 2 + 'px'
+			}
+
+			if (index === 7) {
+				item.style.left = ct_w / 2 - tr - 40 + 'px'
+				item.style.top = ct_w / 2 - tr - 40 + 'px'
+			}
+
+		})
+		let de = 0
+		function run() {
+			de = (de + 10) % 360
+			content.style.transform = `rotate(${de}deg)`
+			items.forEach((item, index) => {
+				item.style.transform = `rotate(${-de}deg)`
+			})
+			setTimeout(() => {
+				requestAnimationFrame(run)
+			}, 200)
+		}
+		requestAnimationFrame(run)
+		// setInterval(() => {
+		// 	de += 5
+		// 	content.style.transform = `rotate(${de}deg)`
+		// 	items.forEach((item, index) => {
+		// 		item.style.transform = `rotate(${-de}deg)`
+		// 	})
+
+		// }, 100)
+	</script>
+</body>
+
+</html>

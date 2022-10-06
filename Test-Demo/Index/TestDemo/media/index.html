@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	@media screen and (max-width: 480px) {
+		body {
+			background-color: lightgreen;
+		}
+	}
+
+	/* 手机 */
+	@media only screen and (max-width: 400px) {
+		body {
+			background-color: #F09A9D;
+		}
+
+		div.app::after {
+			content: "手机";
+		}
+	}
+
+	/* 平板 */
+	@media only screen and (min-width: 401px) and (max-width: 960px) {
+		body {
+			background-color: #F5CF8E;
+		}
+
+		div.app::after {
+			content: "平板";
+		}
+	}
+
+	/* PC、平板电脑 */
+	@media only screen and (min-width: 961px) {
+		body {
+			background-color: #B2D6FF;
+		}
+
+		div.app::after {
+			content: "PC";
+		}
+	}
+
+	/* @media(hover: hover) { */
+
+	@media (orientation: portrait) {
+
+		/* 垂直 */
+		body {
+			color: rebeccapurple;
+		}
+
+		div.app::before {
+			content: "垂直";
+		}
+	}
+
+
+	@media (orientation: landscape) {
+
+		/* 水平 */
+		body {
+			color: rebeccapurple;
+		}
+
+		div.app::before {
+			content: "水平";
+		}
+	}
+</style>
+
+<body>
+	<div class="app">app</div>
+	<script>
+		function Fn() {
+			console.log("H:" + window.screen.height + " W:" + window.screen.width + " dpr:" + window.devicePixelRatio)
+			console.log("iH:" + window.innerHeight + " iW:" + window.innerWidth)
+		}
+		Fn();
+		window.addEventListener('resize', function () {
+			Fn();
+		}, false);
+	</script>
+</body>
+
+</html>

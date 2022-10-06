@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+</style>
+<body>
+    <!-- register.html -->
+<h1>注册页面</h1>
+<a href="/login"> 去登录 </a>
+<div>
+    <form action="http://127.0.0.1:3000/login" method="POST">
+        <p>
+            <label for="username">用户名</label>
+            <input type="text" id="username" name="username" placeholder="用户名">
+        </p>
+        <p>
+            <label for="password">密码 :</label>
+            <input type="text" id="password" name="pwd" placeholder="密码">
+        </p>
+        <p>
+            <input type="submit" value="注册">
+        </p>
+    </form>
+</div>
+
+<div>
+    <form method="POST" action="http://localhost:8090/add" name="userform" >  
+        <input type="text" id="name" name="name" value="xq" class="form-control" /> 
+        <input type="text" id="age" name="age" value="12" class="form-control" />   
+        <input type="text" id="job" name="job" value="coder" class="form-control" />    
+        <input type="text" id="hobby" name="hobby" value="run" class="form-control" />  
+        <button type="submit" class="btn btn-primary">提交添加</button>
+    </form>
+</div>
+
+</body>
+</html>

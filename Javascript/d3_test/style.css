@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* overflow: hidden; */
+}
+
+root {
+  --item-w: 100px;
+  --item-h: 100px;
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+div#chart {
+  margin: 0 auto;
+  width: 2000px;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-family: sans-serif;
+  font-size: 11px;
+}

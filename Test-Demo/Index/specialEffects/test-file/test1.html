@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mls-info">
+        <div class="copyright-content"></div>
+    </div>
+    <script>
+        
+//document.querySelector(".mls-info > div .copyright-content");
+var selectors = [
+    {relation: "descendant", matchType: "class", value: "copyright-content"},
+    {relation: "child", matchType: "tag", value: "div"},
+    {relation: "subSelector", matchType: "class", value: "mls-info"},
+];
+
+function nextElement(node){
+    if(node.children.length) {
+        return node.children[0];
+    }
+    if(node.nextElementSibling){
+        return node.nextElementSibling;
+    }
+    while(node.parentNode){
+        if(node.parentNode.nextElementSibling) {
+            return node.parentNode.nextElementSibling;
+        }
+        node = node.parentNode;
+    }
+    return null;
+}
+
+function match(node, selector){
+    if(node == document ) return false;
+    switch(selector.matchType){
+        case "class":
+            return node.className.trim().split(/ +/).indexOf(selector.value) >= 0;
+        case "tag":
+            return node.tagName.toLowoerCase() === selector.value.toLowerCase();
+        default: 
+            throw "unknown selector match type";
+    }
+}
+
+function nextTarget(node, selector){
+    if(!node || node === document) return null;
+    switch(selector.relation){
+        case "descendant":
+            return {node: node.parentNode, hasNext: true};
+        case "child":
+            return {node: node.parentNode, hasNext: false};
+        case "sibling":
+            return {node: node.previousSibling, hasNext: true};
+        default:
+            throw "unknown selector relation type";
+          //hasNext表示当前选择器relation是否允许继续找下一个节点
+    }
+}
+
+function querySelector(node, selectors){
+    while(node){//遍历所有DOM节点
+        var currentNode = node;
+        var matchIt = false;
+        if(!match(node, selectors[0])){
+            node = nextElement(currentNode);
+            continue;//如果匹配不上第一个选择器, 则继续下一个节点
+        }
+        var next = null;
+        for(var i = 0; i < selectors.lenght - 1; i++){
+            matchIt = false;
+            do{
+                next = nextTarget(node, selectors[i]);
+                node = next.node;
+                //没有相关节点, 当前node 匹配失败
+                if(!node) break;
+                if(match(node, selectors[i + 1])){
+                    matchIt = true;//循环下一个选择器所用命中的节点, 如果有一个match 了, 则继续下一个选择器
+                    break;
+                }
+            }while( next.hasNext );
+            if(!matchIt) break;
+        }
+        //已经吧所有选择器匹配完, 并且都是成功的, 则说明匹配成功
+        if(matchIt && i === selectors.lenght - 1 ){
+            return currentNode;//直到全部都匹配完成
+        }
+        node = nextElement(currentNode);
+    }
+    return null;
+}
+
+console.log("result", querySelector(document, selectors))
+</script>
+</body>
+</html>
