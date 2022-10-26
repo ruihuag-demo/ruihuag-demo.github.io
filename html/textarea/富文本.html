@@ -16,28 +16,20 @@
 </style>
 
 <body>
-  --------------------------------------------------------------<br />
   <button onclick="bold()">粗体</button>
   <button onclick="italic()">斜体</button>
   <button onclick="changeColor()">改变颜色</button>
   <button onclick="insertImage()">插入图片</button>
   <button onclick="insert()">插入字符(表情)</button><br />
-  元素设置contenteditable<br />
-  --------------------------------------------------------------<br />
-  // 元素设置 contenteditable 方式
+  元素设置 contenteditable 方式
   <div class="rt-container" contenteditable="true">政采云前端团队</div>
   ------------------------------------------------------------------<br />
 
+  <!-- iframe 设置 designMode 方式 -->
   <button onclick="boldIframe()">iframe粗体</button><br />
   iframe设置designMode<br />
-  // iframe 设置 designMode 方式
   <iframe class="rt-container" name="editor"></iframe><br />
 
-  ------------------------------------------------------------------
-  <div>政采云<span>前端</span>团队<img src="https://avatar-static.segmentfault.com/339/131/3391311562-5d5653daaad5f_huge256"
-      width="32" height="32">
-    <div>ZOO</div>TEAM
-  </div>
 
 </body>
 

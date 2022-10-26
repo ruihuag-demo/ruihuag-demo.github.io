@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "jsx": "react",
+    "sourceMap": false,
+    "removeComments": true,
+    "strict": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "declaration": false,
+    "traceResolution": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "typeRoots": [
+      "typings/*.d.ts",
+      "node_modules/@types",
+      "node_modules/*.d.ts",
+      "src/assets/type/*.d.ts"
+    ],
+  },
+  "exclude": [
+    "config/*.ts",
+    "node_modules/*"
+  ],
+  "include": [
+
+    "src/**/*",
+    "**/*.d.ts"
+  ]
+}
