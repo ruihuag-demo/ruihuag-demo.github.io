@@ -1,12 +1,7 @@
 @echo off
-set /p commit=commit:
-title auto commit
-
-rem 调用git命令，如果没有找到git命令，说明环境变量未配置
-rem 将git改成git安装目录下的git.exe也可以实现
 
 git add .
-git commit -m "%commit%"
+git commit -m "docs: save note %date:~0,4%-%date:~5,2%-%date:~8,2% %time:~0,2%:%time:~3,2%:%time:~6,2%"
 git push
 
 pause
