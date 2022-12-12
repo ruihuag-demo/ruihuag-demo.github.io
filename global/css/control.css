@@ -1,0 +1,26 @@
+input,
+button {
+  margin-right: 8px;
+  margin-bottom: 12px;
+  padding: 4px 15px;
+  font-size: 14px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  color: #0000009a;
+  line-height: 1.5715;
+  border-color: #d9d9d9;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 400;
+  font-weight: 500;
+	outline: none;
+}
+
+button:hover {
+  color: #000000d9;
+}
+
+button {
+  height: 32px;
+  cursor: pointer;
+}

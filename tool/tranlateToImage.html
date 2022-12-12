@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>canvas转图片并下载</title>
+	<link rel="stylesheet" href="/global/css/control.css">
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	.app {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		min-height: 100vh;
+		background-color: #eee;
+	}
+
+	.app:first-child {
+		padding: 10px;
+	}
+
+	.app:last-child {
+		padding: 10px;
+	}
+
+	.item>label {
+		margin-right: 10px;
+	}
+
+	canvas {
+		background-color: #fff;
+	}
+</style>
+
+<body>
+	<div class="app">
+		<div>
+			<canvas id="canvasId" width="200" height="200">您的浏览器不支持使用该标签</canvas>
+		</div>
+		<div>
+			<div class="item">
+				<label for="text">文本</label>
+				<input name="text" />
+			</div>
+			<button id="download">下载图片</button>
+		</div>
+	</div>
+</body>
+<script src="/global/js/downloadCanvas.js" defer></script>
+<script>
+	window.onload = function () {
+		const canvas = document.getElementById('canvasId');
+		const ctx = canvas.getContext('2d');
+
+
+		// const obj = ctx.createLinearGradient(150, 100, 150, 200)
+		const obj = ctx.createLinearGradient(60, 50, 150, 150)
+		obj.addColorStop(0, 'red')
+		obj.addColorStop(1, 'blue')
+
+		ctx.strokeStyle = 'rgba(0,0,0,0)'
+		ctx.beginPath()
+		ctx.moveTo(60, 50)
+		ctx.arcTo(150, 50, 150, 150, 10)
+		ctx.arcTo(150, 150, 50, 150, 10)
+		ctx.arcTo(50, 150, 50, 50, 10)
+		ctx.arcTo(50, 50, 150, 50, 10)
+		ctx.stroke()
+		ctx.fillStyle = obj
+		ctx.fill();
+
+
+
+
+		ctx.fillStyle = '#fff';
+		ctx.font = '18px Palatino';
+		ctx.fillText('Ruihuag', canvas.width / 3, canvas.height / 2 +5);
+
+		const textItemDom = document.querySelector(".item>input[name='text']")
+		textItemDom.addEventListener('keyup', function (e) {
+			const value = e.target.value
+			ctx.fillText(value, canvas.width / 2, canvas.height / 2);
+		})
+		// 设置下载并转换
+		const download = document.getElementById('download');
+		download.onclick = () => downloadCanvas(canvas)
+	}
+</script>
+
+</html>
