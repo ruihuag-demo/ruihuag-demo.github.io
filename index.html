@@ -4,78 +4,37 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="shortcut icon" href="/global/img/ruihuag-logo.png">
+	<link rel="shortcut icon" href="/global/img/ruihuag-logo.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="/global/css/index.css">
+	<title>RuiHua Demo</title>
 </head>
-<style>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-
-	body{
-		background-color: #eee;
-	}
-
-	.main {
-		width: 100%;
-		text-align: center;
-		/* display: grid; */
-		/* grid-template-columns: 1fr 1fr; */
-	}
-	a {
-		margin-right: 8px;
-		font-weight: bold;
-		display: inline-block;
-		text-decoration: none;
-		color: #fff;
-		padding: 10px 15px;
-		border-radius: 12px;
-		background-color: #108ee9;
-	}
-
-	a:hover {
-		background-color: #58a9ee;
-	}
-
-	legend{
-		font-weight: bold;
-		color: rgb(78, 70, 70);
-	}
-
-	fieldset {
-		background-color: #fff;
-		width: 90%;
-		margin: 10px auto;
-		display: inline-block;
-		padding: 10px 20px;
-		border-radius: 12px;
-		border-color: #ccc;
-	}
-</style>
 
 <body>
 	<div class="main">
-		<fieldset>
-			<legend>Tool</legend>
-			<div class="tool"></div>
-		</fieldset>
 		<fieldset>
 			<legend>Demo</legend>
 			<div class="demo">
 			</div>
 		</fieldset>
-		
+		<fieldset>
+			<legend>Tool</legend>
+			<div class="tool"></div>
+		</fieldset>
 	</div>
 	<script src="./global/js/buildChildren_A.js"></script>
 	<script>
 		const demoArray = [
-			{ label: '立体矩阵', href: '/demo/立方体矩阵.html' },
-			{ label: 'CSS球场', href: '/demo/球场.html' },
-			{ label: '丢色子', href: '/demo/丢色子.html' },
-		]
+			'立体矩阵',
+			'CSS球场',
+			'丢色子',
+			'多重边框',
+		].map(name => ({ label: name, href: `/demo/${name}.html` })).concat([
+			// { label: '立体矩阵', href: '/demo/立方体矩阵.html' },
+			// { label: 'CSS球场', href: '/demo/球场.html' },
+			// { label: '丢色子', href: '/demo/丢色子.html' },
+			// { label: '多重边框', href: '/demo/多重边框.html' },
+		])
 		const toolArray = [
 			{ label: '设备信息检测', href: '/tool/detector.html' },
 		]
