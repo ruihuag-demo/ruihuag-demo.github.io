@@ -5,18 +5,16 @@
 	}
 
 	body {
-	  background-color: #eee;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		min-height: 100vh;
+	  background-color: #0e111e;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  min-height: 100vh;
 	}
 
 	.main {
 	  width: 100%;
 	  text-align: center;
-	  /* display: grid; */
-	  /* grid-template-columns: 1fr 1fr; */
 	}
 
 	a {
@@ -36,12 +34,15 @@
 
 	legend {
 	  font-weight: bold;
-	  color: rgb(78, 70, 70);
-		padding: 10px;
+	  color: #eee;
+	  background-color: #343741;
+	  padding: 4px 10px;
+		margin: 0 10px;
+		border-radius: 12px;
 	}
 
 	fieldset {
-	  background-color: #fff;
+	  background-color: #343741;
 	  width: 90%;
 	  margin: 10px auto;
 	  display: inline-block;

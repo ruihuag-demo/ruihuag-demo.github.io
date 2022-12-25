@@ -1,5 +1,5 @@
 @echo off
-set /p branch=commit:
+set /p branch=branch:
 
 git checkout -b "%branch%"
 git push -u origin "%branch%"
