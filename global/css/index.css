@@ -37,6 +37,7 @@
 	legend {
 	  font-weight: bold;
 	  color: rgb(78, 70, 70);
+		padding: 10px;
 	}
 
 	fieldset {

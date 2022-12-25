@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
-    <title>autoScroll</title>
+    <link rel="shortcut icon" href="/global/img/ruihuag-logo.ico" type="image/x-icon">
+    <title>自动滚动</title>
 </head>
 <style>
     .parent {
@@ -13,16 +14,19 @@
         background: #242424;
         overflow-y: scroll;
     }
+
     /*设置的子盒子高度大于父盒子，产生溢出效果*/
     .child {
         height: auto;
     }
+
     .child li {
         height: 50px;
         margin: 2px 0;
         background: #009678;
     }
 </style>
+
 <body>
     <div id="parent" class="parent">
         <div id="child1" class="child">
@@ -41,13 +45,14 @@
             var child2 = document.getElementById('child2');
             child2.innerHTML = child1.innerHTML;
             setInterval(function () {
-               if(parent.scrollTop >= child1.scrollHeight) {
-                   parent.scrollTop = 0;
-               } else {
-                   parent.scrollTop++;
-               }
+                if (parent.scrollTop >= child1.scrollHeight) {
+                    parent.scrollTop = 0;
+                } else {
+                    parent.scrollTop++;
+                }
             }, 20);
         })()
     </script>
 </body>
+
 </html>
