@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/global/img/ruihuag-logo.ico" type="image/x-icon">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css"> -->
+	<title>圆形</title>
+</head>
+<style>
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.circle {
+		display: block;
+		background: black;
+		border-radius: 50%;
+		height: 300px;
+		width: 300px;
+		margin: 0;
+		background: radial-gradient(circle at 100px 100px, #5cabff, #000);
+	}
+
+	.stage {
+		width: 300px;
+		height: 300px;
+		display: inline-block;
+		margin: 20px;
+		perspective: 1200px;
+		perspective-origin: 50% 50%;
+	}
+
+	.ball .shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+		transform: rotateX(90deg) translateZ(-150px);
+		z-index: -1;
+	}
+
+	.ball {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		border-radius: 50%;
+		position: relative;
+		background: radial-gradient(circle at 50% 120%, #81e8f6, #76deef 10%, #055194 80%, #062745 100%);
+	}
+
+	.ball:before {
+		content: "";
+		position: absolute;
+		top: 1%;
+		left: 5%;
+		width: 90%;
+		height: 90%;
+		border-radius: 50%;
+		background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+		filter: blur(5px);
+		z-index: 2;
+	}
+</style>
+
+<body>
+	<figure class="circle"></figure>
+	<section class="stage">
+		<figure class="ball"><span class="shadow"></span></figure>
+	</section>
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+</body>
+
+</html>

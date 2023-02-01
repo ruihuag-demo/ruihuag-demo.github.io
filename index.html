@@ -7,15 +7,27 @@
 	<link rel="shortcut icon" href="/global/img/ruihuag-logo.ico" type="image/x-icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/global/css/index.css">
-	<title>RuiHua Demo</title>
+	<title>RuiHuag Demo</title>
 </head>
 
 <body>
+
 	<div class="main">
 		<fieldset>
 			<legend>Demo</legend>
-			<div class="demo">
-			</div>
+			<div class="demo"></div>
+		</fieldset>
+		<fieldset>
+			<legend>ThreeJS</legend>
+			<div class="three"></div>
+		</fieldset>
+		<fieldset>
+			<legend>Echart</legend>
+			<div class="echart"></div>
+		</fieldset>
+		<fieldset>
+			<legend>Canvas</legend>
+			<div class="canvas"></div>
 		</fieldset>
 		<fieldset>
 			<legend>Tool</legend>
@@ -24,25 +36,27 @@
 	</div>
 	<script src="./global/js/buildChildren_A.js"></script>
 	<script>
-		const demoArray = [
-			'立体矩阵',
-			'CSS球场',
-			'丢色子',
-			'多重边框',
-			'自动滚动',
-			'backdrop',
-			'container-queries',
-		].map(name => ({ label: name, href: `/demo/${name}.html` })).concat([
-			// { label: '立体矩阵', href: '/demo/立方体矩阵.html' },
-			// { label: 'CSS球场', href: '/demo/球场.html' },
-			// { label: '丢色子', href: '/demo/丢色子.html' },
-			// { label: '多重边框', href: '/demo/多重边框.html' },
+		buildChildren_A(document.querySelector('.tool'), [
+			{ label: '设备信息检测', href: '/tool/detector.html' }
 		])
-		const toolArray = [
-			{ label: '设备信息检测', href: '/tool/detector.html' },
-		]
-		buildChildren_A(document.querySelector('.tool'), toolArray)
-		buildChildren_A(document.querySelector('.demo'), demoArray)
+		buildChildren_A(document.querySelector('.echart'), [
+			{ label: '飞机航线', href: '/echart/飞机航线.html' }
+		])
+		buildChildren_A(document.querySelector('.canvas'), [
+			'canvas-image',
+			'文字粒子效果',
+			'下载图片',
+		].map(name => ({ label: name, href: `/canvas/${name}.html` })))
+		buildChildren_A(document.querySelector('.demo'), [
+			'拼图动画', '滚动字特效', '奥运五环',
+			'自动增长Textarea', '摩天轮', '立体矩阵',
+			'CSS球场', '丢色子', '多重边框',
+			'自动滚动', '眼珠', '圆形', '付款成功', '数字时钟',
+			'Div三角形', 'backdrop', 'container-queries', 'position-sticky','iphone13',
+		].map(name => ({ label: name, href: `/demo/${name}.html` })))
+		buildChildren_A(document.querySelector('.three'), [
+			{ label: '球', href: '/three/球.html' }
+		])
 	</script>
 </body>
 

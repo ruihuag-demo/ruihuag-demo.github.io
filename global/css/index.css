@@ -15,6 +15,10 @@
 	.main {
 	  width: 100%;
 	  text-align: center;
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+	  gap: 10px;
+	  margin: auto 10px;
 	}
 
 	a {
@@ -37,16 +41,24 @@
 	  color: #eee;
 	  background-color: #343741;
 	  padding: 4px 10px;
-		margin: 0 10px;
-		border-radius: 12px;
+	  margin: 0 10px;
+	  border-radius: 12px;
 	}
 
 	fieldset {
 	  background-color: #343741;
-	  width: 90%;
+	  width: 100%;
 	  margin: 10px auto;
 	  display: inline-block;
 	  padding: 10px 20px;
 	  border-radius: 12px;
 	  border-color: #ccc;
+	}
+
+	.main>fieldset:first-child {
+		grid-column: span 2;
+	}
+
+	fieldset>div>a {
+	  margin-bottom: 5px;
 	}
