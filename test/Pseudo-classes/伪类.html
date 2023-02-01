@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/global/img/ruihuag-logo.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css">
+	<title>伪类</title>
+</head>
+
+<style>
+	.fl::first-letter {
+		color: red;
+	}
+
+	progress {
+		margin: 4px;
+	}
+
+	progress:indeterminate {
+		opacity: 0.5;
+		background-color: lightgray;
+		box-shadow: 0 0 2px 1px red;
+	}
+
+	input,
+	span {
+		background: red;
+	}
+
+	:indeterminate,
+	:indeterminate+label {
+		background: lime;
+	}
+</style>
+
+<body>
+	<div>
+		<input type="checkbox" id="checkbox">
+		<label for="checkbox">Background should be green</label>
+	</div>
+	<div>
+		<input type="radio" id="radio">
+		<label for="radio">Background should be green</label>
+	</div>
+	<progress></progress>
+
+	<div class="fl">ruihuag</div>
+	<div class="fl">Ruihuag</div>
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+	<script>
+		var inputs = document.getElementsByTagName("input");
+		for (var i = 0; i < inputs.length; i++) {
+			inputs[i].indeterminate = true;
+		}
+	</script>
+</body>
+
+</html>

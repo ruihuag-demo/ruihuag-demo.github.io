@@ -1,0 +1,23 @@
+{
+  "name": "ruihuag-demo.github.io",
+  "version": "0.0.7",
+  "description": "demo",
+  "author": "ruihuag",
+  "license": "MIT",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/guanruihua/ruihuag-demo.github.io.git"
+  },
+  "files": [
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "index.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/guanruihua/ruihuag-demo.github.io/issues"
+  },
+  "homepage": "https://github.com/guanruihua/ruihuag-demo.github.io",
+  "keywords": []
+}

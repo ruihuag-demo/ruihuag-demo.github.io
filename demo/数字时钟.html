@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>数字时钟</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/global/img/ruihuag-logo.ico" type="image/x-icon">
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		overflow: hidden;
+		background: #2f363e;
+	}
+
+	#time {
+		position: relative;
+		width: 250px;
+		height: 250px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#time .circle {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#time .circle svg {
+		position: relative;
+		transform: rotate(270deg);
+	}
+
+	#time .circle:nth-child(1) svg {
+		width: 250px;
+		height: 250px;
+	}
+
+	#time .circle:nth-child(2) svg {
+		width: 210px;
+		height: 210px;
+	}
+
+	#time .circle:nth-child(3) svg {
+		width: 170px;
+		height: 170px;
+	}
+
+	#time .circle svg circle {
+		width: 100%;
+		height: 100%;
+		fill: transparent;
+		stroke: var(--clr);
+		stroke-width: 5;
+		transform: translate(5px, 5px);
+		opacity: 0.25;
+	}
+
+	#time .circle:nth-child(1) svg circle {
+		stroke-dasharray: 760;
+		stroke-dashoffset: 760;
+	}
+
+	#time .circle:nth-child(2) svg circle {
+		stroke-dasharray: 630;
+		stroke-dashoffset: 630;
+	}
+
+	#time .circle:nth-child(3) svg circle {
+		stroke-dasharray: 510;
+		stroke-dashoffset: 510;
+	}
+
+	.dots {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		z-index: 10;
+	}
+
+	.dots::before {
+		content: '';
+		position: absolute;
+		top: -3px;
+		width: 15px;
+		height: 15px;
+		background: var(--clr);
+		border-radius: 50%;
+		box-shadow: 0 0 20px var(--clr),
+			0 0 40px var(--clr),
+			0 0 60px var(--clr),
+			0 0 80px var(--clr);
+	}
+
+	.timeBx {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		color: #fff;
+		font-family: consolas;
+		gap: 15px;
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+
+	.timeBx #hours::after,
+	.timeBx #minutes::after {
+		content: ':';
+		position: absolute;
+	}
+
+	.timeBx div {
+		color: var(--c);
+		text-shadow: 0 0 10px var(--c),
+			0 0 20px var(--c);
+	}
+
+	.ap {
+		position: absolute;
+		transform: translateY(-15px);
+		font-size: 0.5em;
+		right: 56px;
+	}
+</style>
+
+<body>
+	<div id="time">
+		<div class="circle" style="--clr:#ff2972">
+			<div class="dots sec_dot"></div>
+			<svg>
+				<circle cx="120" cy="120" r="120" id="ss"></circle>
+			</svg>
+		</div>
+		<div class="circle" style="--clr:#fee800">
+			<div class="dots min_dot"></div>
+			<svg>
+				<circle cx="100" cy="100" r="100" id="mm"></circle>
+			</svg>
+		</div>
+		<div class="circle" style="--clr:#04fc43">
+			<div class="dots hr_dot"></div>
+			<svg>
+				<circle cx="80" cy="80" r="80" id="hh"></circle>
+			</svg>
+		</div>
+		<div class="timeBx">
+			<div id="hours" style="--c:#04fc43;">00</div>
+			<div id="minutes" style="--c:#fee800;">00</div>
+			<div id="seconds" style="--c:#ff2972;">00</div>
+			<div class="ap" style="--c:#fff;">
+				<div id="ampm"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		setInterval(() => {
+			let hh = document.getElementById('hh');
+			let mm = document.getElementById('mm');
+			let ss = document.getElementById('ss');
+			let sec_dot = document.querySelector('.sec_dot');
+			let min_dot = document.querySelector('.min_dot');
+			let hr_dot = document.querySelector('.hr_dot');
+			let hours = document.getElementById('hours');
+			let minutes = document.getElementById('minutes');
+			let seconds = document.getElementById('seconds');
+			let ampm = document.getElementById('ampm');
+
+			let h = new Date().getHours();
+			let m = new Date().getMinutes();
+			let s = new Date().getSeconds();
+
+			let am = h >= 12 ? "PM" : "AM";
+
+			// convert 24hr clock to 12hr clock
+			if (h > 12) {
+				h = h - 12;
+			}
+
+			// add zero before single digit number
+			h = (h < 10) ? "0" + h : h;
+			m = (m < 10) ? "0" + m : m;
+			s = (s < 10) ? "0" + s : s;
+
+			hours.innerHTML = h;
+			minutes.innerHTML = m;
+			seconds.innerHTML = s;
+			ampm.innerHTML = am;
+
+			hh.style.strokeDashoffset = 510 - (510 * h) / 12;
+			// 12 hrs clock
+			mm.style.strokeDashoffset = 630 - (630 * m) / 60;
+			// 60 minutes
+			ss.style.strokeDashoffset = 760 - (760 * s) / 60;
+			// 60 seconds
+
+			sec_dot.style.transform = `rotateZ(${s * 6}deg)`;
+			// 360 / 60sec = 6
+			min_dot.style.transform = `rotateZ(${m * 6}deg)`;
+			// 360 / 60min = 6
+			hr_dot.style.transform = `rotateZ(${h * 30}deg)`;
+			// 360 / 60min = 6
+		})
+	</script>
+</body>
+
+</html>
