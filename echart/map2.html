@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="/global/img/ruihuag-logo.ico" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>飞机航线</title>
+</head>
+
+<body>
+	<div id="map" style="width:100%;height:800px"></div>
+	<!--分公司地图js-->
+	<script src="/global/js/echarts.5.4.1.js"></script>
+	<script src="/global/geofiles/usa/index.js"></script>
+	<script src="./data/usa.data.js"></script>
+	<script type="module">
+		var myChart = echarts.init(document.getElementById('map'));
+
+
+		echarts.registerMap('USA', usa, {
+			Alaska: {
+				left: -131,
+				top: 25,
+				width: 75,
+			},
+			Hawaii: {
+				left: -110,
+				top: 28,
+				width: 55
+			},
+			'Puerto Rico': {
+				left: -76,
+				top: 26,
+				width: 40,
+			}
+		})
+
+		function tooltipCharts() {
+			const myChart = echarts.init(document.getElementById('tooltip-chart'));
+			const option = {
+				title: {
+					text: 'Referer of a Website',
+					// subtext: 'Fake Data',
+					// left: 'center'
+				},
+				tooltip: {
+					trigger: 'item'
+				},
+				legend: {
+					// orient: 'vertical',
+					bottom: 'bottom'
+				},
+				series: [
+					{
+						name: 'Access From',
+						type: 'pie',
+						radius: '50%',
+						data: [
+							{ value: 1048, name: 'Search Engine' },
+							{ value: 735, name: 'Direct' },
+							{ value: 580, name: 'Email' },
+							{ value: 484, name: 'Union Ads' },
+							{ value: 300, name: 'Video Ads' }
+						],
+						emphasis: {
+							itemStyle: {
+								shadowBlur: 10,
+								shadowOffsetX: 0,
+								shadowColor: 'rgba(0, 0, 0, 0.5)'
+							}
+						}
+					}
+				]
+			};
+
+			myChart.setOption(option);
+		}
+
+		const option = {
+			title: {
+				text: 'USA Population Estimates (2012)',
+				subtext: 'Data from www.census.gov',
+				sublink: 'http://www.census.gov/popest/data/datasets.html',
+				left: 'right'
+			},
+			geo: {
+				map: 'USA',
+				roam: true,
+				itemStyle: {
+					areaColor: '#e7e8ea'
+				}
+			},
+			tooltip: {
+				// trigger: 'item',
+				// showDelay: 0,
+				// transitionDuration: 0.2,
+				// padding: 3,
+				// backgroundColor: '#222',
+				// borderColor: '#777',
+				// borderWidth: 1,
+				formatter: function (params) {
+					console.log({ params })
+					const { data, name: oname = '', value: ovalue = 0 } = params || {}
+					const { name = oname, value = ovalue } = data || {}
+					const tipHtml = `<div id = 'tooltip-chart' style="height:410px;width:400px;border-radius:5px;background:transparent;box-shadow:0 0 10px 5px #aaa;z-index:1000;" />`
+					// tooltipCharts(params.name);
+					setTimeout(function () {
+						tooltipCharts(params.name);
+					}, 1250);
+					return tipHtml;
+				}
+			},
+			legend: {},
+			visualMap: {
+				left: 'right',
+				min: 500000,
+				max: 38000000,
+				inRange: {
+					// prettier-ignore
+					color: ['#313695', '#4575b4', '#74add1',
+						'#abd9e9',
+						'#e0f3f8',
+						'#ffffbf',
+						'#fee090',
+						'#fdae61',
+						'#f46d43', '#d73027', '#a50026']
+				},
+				text: ['High', 'Low'],
+				calculable: true
+			},
+			series: [
+				{
+					id: 'population',
+					type: 'map',
+					// roam: true,
+					roam: false,
+					map: 'USA',
+					geoIndex: 0,
+					showLegendSymbol: false,
+					animationDurationUpdate: 1000,
+					universalTransition: true,
+					data: usaData.sort((a, b) => a.value - b.value)
+				}
+			]
+		};
+		myChart.hideLoading();
+		myChart.setOption(option);
+
+	</script>
+</body>
+
+</html>
