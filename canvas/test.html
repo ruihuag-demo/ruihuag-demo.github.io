@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css"> -->
+	<title>test</title>
+</head>
+
+<style>
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+	}
+
+	canvas {
+		border: 1px solid #000;
+	}
+</style>
+
+<body>
+	<canvas class="app" width="500" height="500"></canvas>
+
+	<script>
+		const pen = (context) => {
+			return {
+				fillRect: (x, y, width, height) => {
+					context.fillRect(x, y, width, height);
+				}
+			}
+		}
+
+		const context = document.querySelector('.app').getContext('2d');
+		const _ = pen(context)
+		// 创建渐变
+		const gradient = context.createLinearGradient(0, 0, 320, 0);
+		gradient.addColorStop(0, 'red');
+		gradient.addColorStop(1, 'green');
+
+		// 设置填充样式为渐变
+		context.fillStyle = gradient;
+		_.fillRect(0, 0, 160, 160);
+		_.fillRect(340, 340, 160, 160);
+
+		
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+	<script>
+	</script>
+</body>
+
+</html>

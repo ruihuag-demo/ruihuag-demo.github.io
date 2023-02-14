@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="/global/img/ruihuag-logo.ico" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>飞机航线</title>
+</head>
+
+<body>
+	<div id="map" style="width:100%;height:800px"></div>
+	<!--分公司地图js-->
+	<script src="/global/js/echarts.5.4.1.js"></script>
+	<script src="/global/geofiles/usa/index.js"></script>
+	<script src="./data/usa.data.js"></script>
+	<script type="module">
+		var myChart = echarts.init(document.getElementById('map'));
+		echarts.registerMap('USA', usa, {
+			Alaska: {
+				left: -131,
+				top: 25,
+				width: 75,
+			},
+			Hawaii: {
+				left: -110,
+				top: 28,
+				width: 55
+			},
+			'Puerto Rico': {
+				left: -76,
+				top: 26,
+				width: 40,
+			}
+		})
+
+		function randomPieSeries(center, radius) {
+			const data = ['A', 'B', 'C', 'D'].map((t) => {
+				return {
+					value: Math.round(Math.random() * 100),
+					name: 'Category ' + t
+				};
+			});
+			return {
+				type: 'pie',
+				coordinateSystem: 'geo',
+				tooltip: {
+					formatter: '{b}: {c} ({d}%)'
+				},
+				label: {
+					show: false
+				},
+				labelLine: {
+					show: false
+				},
+				animationDuration: 0,
+				radius,
+				center,
+				data
+			};
+		}
+
+
+		const option = {
+			title: {
+				text: 'USA Population Estimates (2012)',
+				subtext: 'Data from www.census.gov',
+				sublink: 'http://www.census.gov/popest/data/datasets.html',
+				left: 'right'
+			},
+			geo: {
+				map: 'USA',
+				roam: true,
+				itemStyle: {
+					areaColor: '#e7e8ea'
+				}
+			},
+			tooltip: {
+				trigger: 'item',
+				showDelay: 0,
+				transitionDuration: 0.2
+			},
+			legend: {},
+			visualMap: {
+				left: 'right',
+				min: 500000,
+				max: 38000000,
+				inRange: {
+					// prettier-ignore
+					color: ['#313695', '#4575b4', '#74add1',
+						'#abd9e9',
+						'#e0f3f8',
+						'#ffffbf',
+						'#fee090',
+						'#fdae61',
+						'#f46d43', '#d73027', '#a50026']
+				},
+				text: ['High', 'Low'],
+				calculable: true
+			},
+			series: [
+				randomPieSeries([-86.753504, 33.01077], 15),
+				randomPieSeries([-116.853504, 39.8], 25),
+				randomPieSeries([-99, 31.5], 30),
+				randomPieSeries(
+					// it's also supported to use geo region name as center since v5.4.1
+					+echarts.version.split('.').slice(0, 3).join('') > 540
+						? 'Maine'
+						: // or you can only use the LngLat array
+						[-69, 45.5],
+					12
+				),
+				{
+					id: 'population',
+					type: 'map',
+					// roam: true,
+					roam: false,
+					map: 'USA',
+					geoIndex: 0,
+					showLegendSymbol: false,
+					animationDurationUpdate: 1000,
+					universalTransition: true,
+					data: usaData.sort((a, b) => a.value - b.value)
+				}
+			]
+		};
+		myChart.hideLoading();
+		myChart.setOption(option);
+
+	</script>
+</body>
+
+</html>
