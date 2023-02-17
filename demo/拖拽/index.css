@@ -1,0 +1,44 @@
+.container {
+  width: 400px;
+  margin: 0 auto;
+  background: pink;
+  padding: 20px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.list-item {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  background: #fff;
+  line-height: 100px;
+  text-align: center;
+  list-style: none;
+  user-select: none;
+}
+
+.active {
+  background: skyblue;
+}
+
+.clone-item {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  background: #fff;
+  line-height: 100px;
+  text-align: center;
+  list-style: none;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.8;
+}

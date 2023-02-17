@@ -1,6 +1,6 @@
 {
   "name": "ruihuag-demo.github.io",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "demo",
   "author": "ruihuag",
   "license": "MIT",
@@ -19,5 +19,13 @@
     "url": "https://github.com/guanruihua/ruihuag-demo.github.io/issues"
   },
   "homepage": "https://github.com/guanruihua/ruihuag-demo.github.io",
-  "keywords": []
+  "keywords": [
+    "demo",
+    "html",
+    "html5",
+    "css",
+    "css3",
+    "js",
+    "JavaScript"
+  ]
 }
