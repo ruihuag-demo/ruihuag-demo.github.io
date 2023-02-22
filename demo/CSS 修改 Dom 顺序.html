@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS 修改 Dom 顺序</title>
+</head>
+
+<style>
+	body {
+		background-color: #fff;
+	}
+
+	div {
+		color: #000;
+	}
+
+	.container div {
+		display: inline-block;
+	}
+</style>
+
+<body>
+	<div>
+		<h2>1. direction</h2>
+		<div class="tmp1">
+			<div class="container">
+				<h3>direction: ltr(default)</h3>
+				<div style="direction: ltr;">
+					<div>菜单1</div>
+					<div>菜单2</div>
+				</div>
+			</div>
+			<div class="container">
+				<h3>direction: rtl</h3>
+				<div style="direction: rtl;">
+					<div>菜单1</div>
+					<div>菜单2</div>
+				</div>
+			</div>
+		</div>
+
+		<hr />
+		<div class="tmp2">
+			<div class="container">
+				<h3>float: none</h3>
+				<div>
+					<div>菜单1</div>
+					<div>菜单2</div>
+				</div>
+			</div>
+			<div class="container">
+				<h3>float: left</h3>
+				<div>
+					<div>菜单1</div>
+					<div style="float: left;">菜单2(left)</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+
+		<div class="tmp3">
+			<h3>flex</h3>
+			<div class="container" style="display: flex;flex-direction: row;">
+				<div style="order: 2;">菜单1(order:2)</div>
+				<div style="order: 1;">菜单2(order:1)</div>
+			</div>
+		</div>
+		<hr />
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+	<script>
+	</script>
+</body>
+
+</html>
