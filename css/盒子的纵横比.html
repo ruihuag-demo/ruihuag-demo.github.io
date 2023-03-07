@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css">
+	<title>盒子的纵横比</title>
+</head>
+
+<style>
+	body {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		gap: 24px;
+		padding-top: 24px;
+	}
+
+	h3 {
+		margin: 8px 0;
+	}
+
+	.card {
+		width: 240px;
+		height: 300px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #f7f7f7;
+		border-radius: 8px;
+	}
+
+	img {
+		/* 防止图像拉伸 */
+		object-fit: cover;
+		width: 100%;
+	}
+
+	/* 盒子纵横比 */
+	.auto img {
+		aspect-ratio: auto;
+	}
+
+	.h16-w9 img {
+		aspect-ratio: 16/9;
+	}
+
+	.h3-w2 img {
+		aspect-ratio: 3/2;
+	}
+</style>
+
+<body>
+	<div class="card auto">
+		<h3>自动</h3>
+		<img src="https://p3-passport.byteimg.com/img/user-avatar/75e47e118bbc3ff51aa2731f74953c35~240x240.awebp" alt="" />
+	</div>
+	<div class="card h16-w9">
+		<h3>16:9</h3>
+		<img src="https://p3-passport.byteimg.com/img/user-avatar/75e47e118bbc3ff51aa2731f74953c35~240x240.awebp" alt="" />
+	</div>
+	<div class="card h3-w2">
+		<h3>3:2</h3>
+		<img src="https://p3-passport.byteimg.com/img/user-avatar/75e47e118bbc3ff51aa2731f74953c35~240x240.awebp" alt="" />
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+	<script>
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS 容器查询</title>
+</head>
+<!-- @container [name] 查询条件{
+  /* css 规则 */
+} -->
+<style>
+	main {
+		resize: horizontal;
+		width: 180px;
+		overflow: auto;
+		max-width: 800px;
+		margin-inline: auto;
+		resize: horizontal;
+		background-color: antiquewhite;
+		text-align: center;
+	}
+
+	.container {
+		container-type: inline-size;
+		container-name: main;
+	}
+
+	@container main (min-width:320px) {
+		.container p {
+			font-size: 18px;
+		}
+	}
+
+	@container main (min-width:480px) {
+		.container p {
+			font-size: 24px;
+			font-weight: 600;
+		}
+	}
+</style>
+
+<body>
+	<main>
+		<div class="container">
+			<p>君不见黄河之水天上来</p>
+			<p>奔流到海不复回</p>
+			<p>君不见高堂明镜悲白发</p>
+			<p>朝如青丝暮成雪</p>
+		</div>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+	<script>
+	</script>
+</body>
+
+</html>

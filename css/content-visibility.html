@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css">
+	<title>content-visibility</title>
+</head>
+
+<style>
+	body {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		gap: 24px;
+		padding-top: 24px;
+	}
+
+	h3 {
+		margin: 8px 0;
+	}
+
+	.card {
+		width: 240px;
+		height: 300px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #f7f7f7;
+		border-radius: 8px;
+		/* 
+  content-visibility 属性用于控制元素的内容是否显示，主要值就是 hidden 和 visible(默认值)
+  该属性如果设置为 hidden 浏览器就会跳过该元素内容的渲染，需要的时候在将其设置为 visible ，这样可以提高浏览器的渲染速度
+  */
+		content-visibility: hidden;
+	}
+
+	img {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	.auto img {
+		aspect-ratio: auto;
+	}
+
+	.h16-w9 img {
+		aspect-ratio: 16/9;
+	}
+
+	.h3-w2 img {
+		aspect-ratio: 3/2;
+	}
+
+	.content-visibility-visible {
+		content-visibility: visible;
+	}
+
+	#btn {
+		position: absolute;
+		width: 130px;
+		height: 40px;
+		color: #fff;
+		border-radius: 5px;
+		padding: 10px 25px;
+		cursor: pointer;
+		margin-top: 320px;
+		background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+		border: none;
+	}
+</style>
+
+<body>
+	<div class="card auto">
+		<h3>自动</h3>
+		<img src="https://p3-passport.byteimg.com/img/user-avatar/75e47e118bbc3ff51aa2731f74953c35~240x240.awebp" alt="" />
+	</div>
+	<div class="card h16-w9">
+		<h3>16:9</h3>
+		<img src="https://p3-passport.byteimg.com/img/user-avatar/75e47e118bbc3ff51aa2731f74953c35~240x240.awebp" alt="" />
+	</div>
+	<div class="card h3-w2">
+		<h3>3:2</h3>
+		<img src="https://p3-passport.byteimg.com/img/user-avatar/75e47e118bbc3ff51aa2731f74953c35~240x240.awebp" alt="" />
+	</div>
+	<button id="btn">显示</button>
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+	<script>
+		const card = [...document.getElementsByClassName('card')]
+		document.getElementById('btn').addEventListener('click', function () {
+			card.forEach(element => {
+				element.className = element.className + ' content-visibility-visible'
+			})
+		})
+	</script>
+</body>
+
+</html>

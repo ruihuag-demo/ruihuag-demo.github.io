@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css"> -->
+	<title>CSS 书写模式</title>
+</head>
+
+<style>
+	body {
+		margin: 0;
+	}
+
+	.main {
+		display: flex;
+		gap: 32px;
+		justify-content: center;
+		padding-top: 3rem;
+	}
+
+	.text-left,
+	.text-right {
+		width: 240px;
+		height: 240px;
+		background-color: blanchedalmond;
+		font-size: #333;
+	}
+
+	h2 {
+		position: absolute;
+		margin: 0;
+		margin-top: -2.5rem;
+	}
+
+	.lr .text-left {
+		text-align: left;
+		/* 将水平排放的文本修改为垂直排放，根据text-align属性来决定是顶部对齐还是底部对齐 */
+		writing-mode: vertical-lr;
+	}
+
+	.lr .text-right {
+		text-align: right;
+		/* 将水平排放的文本修改为垂直排放，根据text-align属性来决定是顶部对齐还是底部对齐 */
+		writing-mode: vertical-lr;
+	}
+
+	.rl .text-left {
+		text-align: left;
+		/* 将水平排放的本本修改为垂直排放，且书写方式修改为从左到右，其他同上 */
+		writing-mode: vertical-rl;
+	}
+
+	.rl .text-right {
+		text-align: right;
+		/* 将水平排放的本本修改为垂直排放，且书写方式修改为从左到右，其他同上 */
+		writing-mode: vertical-rl;
+	}
+</style>
+
+<body>
+	<div class="main lr">
+		<h2>vertical-lr</h2>
+		<div class="text-left">
+			<p>君不见黄河之水天上来</p>
+			<p>奔流到海不复回</p>
+			<p>君不见高堂明镜悲白发</p>
+			<p>朝如青丝暮成雪</p>
+		</div>
+		<div class="text-right">
+			<p>君不见黄河之水天上来</p>
+			<p>奔流到海不复回</p>
+			<p>君不见高堂明镜悲白发</p>
+			<p>朝如青丝暮成雪</p>
+		</div>
+	</div>
+	<div class="main rl">
+		<h2>vertical-rl</h2>
+		<div class="text-left">
+			<p>君不见黄河之水天上来</p>
+			<p>奔流到海不复回</p>
+			<p>君不见高堂明镜悲白发</p>
+			<p>朝如青丝暮成雪</p>
+		</div>
+		<div class="text-right">
+			<p>君不见黄河之水天上来</p>
+			<p>奔流到海不复回</p>
+			<p>君不见高堂明镜悲白发</p>
+			<p>朝如青丝暮成雪</p>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script>
+	<script>
+	</script>
+</body>
+
+</html>
