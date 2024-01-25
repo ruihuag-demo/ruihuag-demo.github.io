@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/css/test-body.css"> -->
+	<title>colorPick</title>
+</head>
+
+<style>
+
+</style>
+
+<body>
+	<style>
+		#canvas {
+			border: solid 1px #999;
+		}
+
+		#color {
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+
+	<canvas id="canvas" width="500" height="300"></canvas>
+	<div id="color"></div>
+	<div id="text"></div>
+
+	<script>
+		var canvas = document.getElementById("canvas");
+		canvas.addEventListener("mousemove", pickPixels);
+		var ctx = canvas.getContext("2d", { willReadFrequently: true });
+
+		var img = new Image();
+		// var img = document.createElement("img");
+		var url =
+			"https://img1.baidu.com/it/u=1649605650,3527686615&fm=253&fmt=auto&app=138&f=JPEG?w=749&h=422";
+		img.src = url + "?" + new Date().getTime();
+		// 防止报跨域的错 Failed to execute 'getImageData' on 'CanvasRenderingContext2D': The canvas has been tainted by cross-origin data
+		img.setAttribute("crossOrigin", "");
+		img.onload = function () {
+			ctx.drawImage(img, -100, -50);
+			img.style.display = "none";
+		};
+
+		var color = document.getElementById("color");
+
+		function pickPixels(event) {
+			var x = event.layerX;
+			var y = event.layerY;
+			var pixel = ctx.getImageData(x, y, 1, 1);
+			var data = pixel.data;
+			var rgba =
+				"rgba(" +
+				data[0] +
+				"," +
+				data[1] +
+				"," +
+				data[2] +
+				"," +
+				data[3] / 255 +
+				")";
+			color.style.background = rgba;
+			var textDom = document.getElementById("text");
+			textDom.textContent = `色值：` + rgba;
+		}
+	</script>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/rh-static@0.0.1/js/addWindowSize.js" defer></script> -->
+	<script>
+	</script>
+</body>
+
+</html>
