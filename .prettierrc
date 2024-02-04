@@ -1,4 +1,4 @@
-module.export = {
+{
 	"printWidth": 100,
 	"tabWidth": 2,
 	"useTabs": false,
@@ -8,6 +8,6 @@ module.export = {
 	"jsxSingleQuote": true,
 	"htmlWhitespaceSensitivity": "ignore",
 	"endOfLine": "auto",
-	"trailingComma": "none",
+	"trailingComma": "all",
 	"arrowParens": "avoid"
 }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap");
+    :root {
+      --x: 50%;
+      --y: 50%;
+      --blur: 0.7vmax;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      background-color: black;
+      overscroll-behavior-x: none;
+      overscroll-behavior-y: none;
+      overflow: hidden;
+      /*
+  cursor: none;
+  */
+      user-select: none;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      font-family: "Lexend", serif;
+      text-align: center;
+      line-height: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    main {
+      z-index: 1;
+    }
+    h1 {
+      font-size: max(10vw, 60px);
+      color: #fff;
+    }
+    #bg,
+    #bg_mask {
+      /* ふちボケ対策 */
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: calc(var(--blur) * -1);
+
+      background: url(https://images.unsplash.com/photo-1503639500730-ff76f54fee06?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTg5NTM5MTJ8&ixlib=rb-4.0.3&q=85)
+        no-repeat center/cover;
+    }
+    #bg {
+      filter: blur(var(--blur));
+    }
+    #bg_mask {
+      mask-image: radial-gradient(
+        circle 50vmin at var(--x) var(--y),
+        black 20vmin,
+        transparent
+      );
+    }
+  </style>
+  <body>
+    <div id="bg"></div>
+    <div id="bg_mask"></div>
+    <main>
+      <h1>Focus</h1>
+    </main>
+    <script>
+      "use strict";
+      console.clear();
+
+      var root = document.querySelector(":root");
+      function spotlight(e) {
+        root.style.setProperty("--x", e.pageX + "px");
+        root.style.setProperty("--y", e.pageY + "px");
+      }
+      window.addEventListener("pointermove", spotlight);
+      window.addEventListener("pointerdown", spotlight);
+    </script>
+  </body>
+</html>
