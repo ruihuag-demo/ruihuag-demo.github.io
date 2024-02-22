@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/0static/css/test-body.css" /> -->
+    <title>stick</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 3000px;
+    }
+    .nav {
+      background-color: pink;
+      height: 100px;
+      width: 100%;
+      text-align: center;
+      line-height: 100px;
+    }
+    ul {
+      list-style: none;
+      text-align: center;
+    }
+    li {
+      height: 50px;
+      width: 100%;
+      background-color: #666;
+      line-height: 50px;
+    }
+    .title {
+      background-color: rgb(0, 179, 255);
+      font-weight: bold;
+      position: sticky;
+      top: 0px;
+    }
+  </style>
+  <body>
+    <div class="nav">
+      <span>头部</span>
+    </div>
+    <div class="content">
+      <ul>
+        <li class="title">内容一</li>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+      </ul>
+      <ul>
+        <li class="title">内容二</li>
+        <li>d</li>
+        <li>e</li>
+        <li>f</li>
+      </ul>
+      <ul>
+        <li class="title">内容三</li>
+        <li>g</li>
+        <li>h</li>
+        <li>i</li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/0static/js/addWindowSize.js" defer></script>
+    <script></script>
+  </body>
+</html>
