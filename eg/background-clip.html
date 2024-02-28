@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/0static/css/test-body.css" />
+    <title>background-clip</title>
+  </head>
+
+  <style>
+    .box {
+      width: 150px;
+      height: 150px;
+      padding: 10px;
+      color: #0f0;
+      font-weight: bolder;
+      outline: 10px solid red;
+      border: 10px solid rgba(0, 0, 0, 0.5);
+      background-color: #00f;
+      margin-right: 25px;
+    }
+    .border-box{
+      background-clip: border-box;
+    }
+    .padding-box{
+      background-clip: padding-box;
+    }
+    .content-box{
+      background-clip: content-box;
+    }
+    .text{
+      background-clip: text;
+    }
+  </style>
+
+  <body>
+    <div class="box">
+      content
+    </div>
+    <div class="box border-box">
+      content
+    </div>
+    <div class="box padding-box">
+      content
+    </div>
+    <div class="box content-box">
+      content
+    </div>
+    <div class="box text">
+      content
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/0static/js/addWindowSize.js" defer></script>
+    <script></script>
+  </body>
+</html>
