@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/0static/css/test-body.css" />
+    <title>rgb</title>
+  </head>
+
+  <style>
+    p {
+      color: rgb(255, 0, 0);
+    }
+    .p2 {
+      --color: rgb(255, 0, 0);
+      color: rgb(from var(--color) calc(r - 255) calc(g + 255) b); /* result = rgb(0, 255, 0) */
+    }
+    .p2:hover {
+      background: hsl(from var(--bg) h s calc(l * 0.8));
+    }
+  </style>
+
+  <body>
+    <p>CSS Relative Color</p>
+    <p class="p2">CSS Relative Color</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/0static/js/addWindowSize.js" defer></script>
+    <script></script>
+  </body>
+</html>
