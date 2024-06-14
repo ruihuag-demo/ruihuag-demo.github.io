@@ -1,1 +1,1 @@
-console.log('pre-commit.js')
+console.log('pre-commit.js running....')

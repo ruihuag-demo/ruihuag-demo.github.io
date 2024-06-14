@@ -21,8 +21,6 @@
   "homepage": "https://github.com/guanruihua/ruihuag-demo.github.io",
   "keywords": [],
   "husky": {
-    "hooks": {
-      "pre-commit": "node config/script/pre-commit.js"
-    }
+    "hooks": {}
   }
 }
