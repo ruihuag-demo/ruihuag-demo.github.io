@@ -19,5 +19,10 @@
     "url": "https://github.com/guanruihua/ruihuag-demo.github.io/issues"
   },
   "homepage": "https://github.com/guanruihua/ruihuag-demo.github.io",
-  "keywords": []
+  "keywords": [],
+  "husky": {
+    "hooks": {
+      "pre-commit": "node config/script/pre-commit.js"
+    }
+  }
 }
