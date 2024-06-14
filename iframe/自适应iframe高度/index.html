@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/0static/css/test-body.css" />
+    <title>index</title>
+  </head>
+
+  <style>
+    .box, iframe {
+      /* overflow: hidden; */
+      border: none;
+    }
+  </style>
+
+  <body>
+    <div class="box" id="crossDomain"></div>
+    <script src="https://cdn.jsdelivr.net/npm/0static/js/addWindowSize.js" defer></script>
+    <script>
+      function autoResize(event) {
+        // 获取iframe元素:
+        const iframeEle = event.target
+        // 创建一个ResizeObserver:
+        const resizeRo = new ResizeObserver(entries => {
+          let entry = entries[0]
+          let height = entry.contentRect.height
+          iframeEle.style.height = height + 'px'
+        })
+        // 开始监控iframe的body元素:
+        resizeRo.observe(iframeEle.contentWindow.document.body)
+      }
+      const iframe2 = document.createElement('iframe')
+      iframe2.src = './iframe.html'
+      // iframe2.src = '<http://xyz/cross.html>'
+      iframe2.onload = autoResize
+      document.getElementById('crossDomain').appendChild(iframe2)
+    </script>
+  </body>
+</html>

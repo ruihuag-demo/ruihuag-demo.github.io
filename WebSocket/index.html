@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/0static/css/test-body.css" />
+    <title>index</title>
+  </head>
+
+  <style></style>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/0static/js/addWindowSize.js" defer></script>
+    <script>
+      // 创建ws连接
+      const ws = new WebSocket('ws://localhost:3222/')
+      ws.onopen = function () {
+        console.log('WebSocket 连接已经建立。')
+        ws.send('Hello, server!')
+      }
+      ws.onmessage = function (event) {
+        console.log('收到服务器消息：', event.data)
+      }
+      ws.onerror = function (event) {
+        console.error('WebSocket 连接出现错误：', event)
+      }
+      ws.onclose = function () {
+        console.log('WebSocket 连接已经关闭。')
+      }
+    </script>
+  </body>
+</html>
