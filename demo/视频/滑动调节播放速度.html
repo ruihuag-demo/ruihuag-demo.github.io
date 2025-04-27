@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/0static/css/test-body.css" />
+    <title>滑动调节播放速度</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      /* background: url(./背景图.jpg); */
+      background-color: #e0effe;
+    }
+
+    .wrapper {
+      position: fixed;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      display: flex;
+    }
+
+    .speed {
+      width: 50px;
+      height: 430px;
+      background-color: #fff;
+      /*display: inline-block;*/
+      border-radius: 50px;
+      overflow: hidden;
+    }
+
+    .speed-bar {
+      width: 100%;
+      height: 16%;
+      background: linear-gradient(to bottom, #2376ae, #c16ecf);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .input1 {
+      width: 400px;
+      height: 60px;
+      border: 10;
+      background-color: transparent;
+      position: fixed;
+      top: 8%;
+      left: 40%;
+    }
+
+    .input2 {
+      height: 45px;
+      font-size: 20;
+      border: 10;
+      background-color: transparent;
+      position: fixed;
+      top: 8%;
+      left: 66.5%;
+    }
+  </style>
+
+  <body>
+    <div class="wrapper">
+      <video src="./test.mp4" controls width="765" height="430" class="video"></video>
+
+      <div class="speed">
+        <div class="speed-bar">1x</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/0static/js/addWindowSize.js" defer></script>
+    <script>
+      // 获取白底容器
+      // 在白色容器上监听鼠标的移动事件
+      // 获取到鼠标移动的距离
+      // 根据鼠标移动的距离来设计彩色容器的高度
+      var speed = document.querySelector('.speed')
+      var video = document.querySelector('.video')
+      var speedBar = document.querySelector('.speed-bar')
+
+      speed.addEventListener('mousemove', function (e) {
+        var y = e.pageY - speed.getBoundingClientRect().top
+        var percent = y / speed.offsetHeight
+        var height = Math.round(percent * 100) + '%'
+
+        // 用js修改speed-bar容器的height
+        speedBar.style.height = height
+        // 修改倍速文字
+        var min = 0.5
+        var max = 4
+        var playSpeed = percent * (max - min) + min
+        speedBar.textContent = playSpeed.toFixed(2) + 'x'
+
+        // 更改视频播放速度
+        video.playbackRate = playSpeed
+      })
+    </script>
+  </body>
+</html>

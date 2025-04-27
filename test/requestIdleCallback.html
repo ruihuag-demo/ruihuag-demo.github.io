@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/0static/css/test-body.css" />
+    <title>requestIdleCallback</title>
+  </head>
+
+  <style>
+    button {
+      padding: 12px;
+      font-size: 16px;
+    }
+  </style>
+
+  <body>
+    <input />
+    <button>click</button>
+    <button>click</button>
+    <button>click</button>
+    <button>click</button>
+    <script src="https://cdn.jsdelivr.net/npm/0static/js/addWindowSize.js" defer></script>
+    <script>
+      const timeCount = {
+        click: -1,
+        mouseover: -1,
+        keypress: -1,
+        wheel: -1
+      }
+      
+      function debounce(fn, delay) {
+        var timer // 维护一个 timer
+        return function () {
+          var _this = this // 取debounce执行作用域的this
+          var args = arguments
+          if (timer) {
+            clearTimeout(timer)
+          }
+          timer = setTimeout(function () {
+            fn.apply(_this, args) // 用apply指向调用debounce的对象，相当于_this.fn(args);
+          }, delay)
+        }
+      }
+
+      window.addEventListener(
+        'click',
+        debounce(() => {
+          timeCount.click = new Date().getTime()
+          console.log('click action')
+        }, 1000)
+      )
+
+      window.addEventListener(
+        'wheel',
+        debounce(() => {
+          timeCount.wheel = new Date().getTime()
+          console.log('wheel action')
+        }, 1000)
+      )
+
+      window.addEventListener(
+        'mouseover',
+        debounce(() => {
+          timeCount.mouseover = new Date().getTime()
+          console.log('mouseover action')
+        }, 1000)
+      )
+
+      window.addEventListener(
+        'keypress',
+        debounce(() => {
+          timeCount.keypress = new Date().getTime()
+          console.log('keypress action')
+        }, 1000)
+      )
+
+      const run = () => {
+        requestIdleCallback(() => {
+          console.log('requestIdleCallback')
+          // Promise.resolve().then(() => {
+          // 计算
+          const actionMaxTime = Math.max(...Object.values(timeCount))
+          const nowTime = new Date().getTime()
+          console.log(timeCount, actionMaxTime, nowTime)
+          // return
+          // sleep(1000)
+          const timmer = setTimeout(() => {
+            console.log('等待了1000ms', new Date().getTime())
+            clearTimeout(timmer)
+            run()
+          }, 3000)
+          // })
+          // console.log('空闲时间1')
+        })
+      }
+      run()
+      // requestIdleCallback(() => {
+      //   console.log('空闲时间2')
+      // })
+    </script>
+  </body>
+</html>

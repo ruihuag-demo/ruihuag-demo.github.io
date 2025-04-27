@@ -4,7 +4,9 @@
   "description": "demo",
   "author": "ruihuag",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test": "node config/script/pre-commit.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/guanruihua/ruihuag-demo.github.io.git"

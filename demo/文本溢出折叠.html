@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/0static/css/test-body.css" /> -->
+    <title>文本溢出折叠</title>
+  </head>
+
+  <style>
+    .wrapper {
+      width: fit-content;
+      height: fit-content;
+      border-radius: 8px;
+      border: 1px solid #00bfbf;
+      padding: 8px;
+      margin: 30px auto;
+      /* background-color: #fff; */
+    }
+
+    .text {
+      width: 300px;
+      font-size: 14px;
+      line-height: 20px;
+      white-space: nowrap;
+      opacity: 0;
+    }
+    /* 展开/收起按钮初始隐藏 */
+    .text .more {
+      display: none;
+    }
+    .text .collapse {
+      display: none;
+    }
+
+    /* 未溢出 */
+    .text.normal {
+      white-space: unset;
+      opacity: 1;
+    }
+    /* 溢出 */
+    .text.ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      position: relative;
+      opacity: 1;
+    }
+    /* 文字溢出 - 展开按钮 */
+    .text.ellipsis .more {
+      display: block;
+    }
+
+    /* 文本展开 */
+    .text.expand {
+      white-space: unset;
+      opacity: 1;
+    }
+    /* 文本展开 - 收起按钮 */
+    .text.expand .collapse {
+      display: inline-block;
+    }
+
+    .more {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: block;
+      color: #00bfbf;
+      background-color: #fff;
+      font-size: 14px;
+      line-height: 20px;
+      width: fit-content;
+      cursor: pointer;
+    }
+
+    .more::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 20px;
+      width: 60px;
+      right: 28px;
+      top: 0;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 1)
+      );
+    }
+
+    .collapse {
+      color: #00bfbf;
+      cursor: pointer;
+    }
+  </style>
+
+  <body>
+    <div class="wrapper">
+      <div class="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum animi cum consequuntur
+        beatae, culpa impedit excepturi fuga, nulla facere obcaecati consequatur quisquam adipisci
+        veritatis! Deserunt nostrum doloribus minima voluptatum labore.
+        <span class="more">展开</span>
+        <span class="collapse">收起</span>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/0static/js/addWindowSize.js" defer></script>
+    <script>
+      const isTextOverflowX = elem => {
+        return text.clientWidth < text.scrollWidth
+      }
+
+      const text = document.getElementsByClassName('text')[0]
+
+      const isTextOverflow = isTextOverflowX(text)
+
+      if (isTextOverflow) {
+        text.classList.add('ellipsis')
+      } else {
+        text.classList.add('normal')
+      }
+
+      const more = document.getElementsByClassName('more')[0]
+      more.addEventListener('click', () => {
+        text.classList.remove('ellipsis')
+        text.classList.add('expand')
+      })
+
+      const collapse = document.getElementsByClassName('collapse')[0]
+      collapse.addEventListener('click', () => {
+        text.classList.remove('expand')
+        text.classList.add('ellipsis')
+      })
+    </script>
+  </body>
+</html>
