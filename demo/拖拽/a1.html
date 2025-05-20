@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>拖拽排序</title>
+    <style>
+      .sortable-container {
+        width: 300px;
+        border: 1px solid #ddd;
+        padding: 10px;
+      }
+      .sortable-item {
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #f9f9f9;
+        border: 1px solid #eee;
+        cursor: move;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .sortable-item.dragging {
+        background-color: #f0f0f0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: scale(1.02);
+        z-index: 1;
+      }
+      .placeholder {
+        height: 40px;
+        background-color: #e9e9e9;
+        border: 2px dashed #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>拖拽排序列表</h2>
+    <div class="sortable-container" id="sortable">
+      <div class="sortable-item">项目 1</div>
+      <div class="sortable-item">项目 2</div>
+      <div class="sortable-item">项目 3</div>
+      <div class="sortable-item">项目 4</div>
+      <div class="sortable-item">项目 5</div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const sortable = document.getElementById('sortable')
+        const items = sortable.querySelectorAll('.sortable-item')
+
+        let draggedItem = null
+        let placeholder = document.createElement('div')
+        placeholder.className = 'placeholder'
+
+        items.forEach(item => {
+          item.addEventListener('mousedown', function (e) {
+            e.preventDefault()
+            draggedItem = this
+
+            // 记录初始位置
+            const rect = draggedItem.getBoundingClientRect()
+            const offsetX = e.clientX - rect.left
+            const offsetY = e.clientY - rect.top
+
+            // 创建占位符
+            placeholder.style.height = `${rect.height}px`
+            draggedItem.parentNode.insertBefore(placeholder, draggedItem.nextSibling)
+
+            // 设置拖拽样式
+            draggedItem.classList.add('dragging')
+            draggedItem.style.position = 'absolute'
+            draggedItem.style.zIndex = 1000
+            draggedItem.style.width = `${rect.width}px`
+
+            // 更新位置函数
+            function moveAt(clientX, clientY) {
+              draggedItem.style.left = `${clientX - offsetX}px`
+              draggedItem.style.top = `${clientY - offsetY}px`
+            }
+
+            // 初始位置
+            moveAt(e.clientX, e.clientY)
+
+            // 鼠标移动事件
+            function onMouseMove(e) {
+              moveAt(e.clientX, e.clientY)
+
+              // 隐藏元素以便获取下方元素
+              draggedItem.style.display = 'none'
+              const elemBelow = document.elementFromPoint(e.clientX, e.clientY)
+              draggedItem.style.display = 'block'
+
+              if (!elemBelow) return
+
+              // 找到最近的可排序项
+              const droppable = elemBelow.closest('.sortable-item')
+              if (droppable && droppable !== draggedItem) {
+                // 确定插入位置
+                const droppableRect = droppable.getBoundingClientRect()
+                const droppableMidY = droppableRect.top + droppableRect.height / 2
+
+                if (e.clientY < droppableMidY) {
+                  droppable.parentNode.insertBefore(placeholder, droppable)
+                } else {
+                  droppable.parentNode.insertBefore(placeholder, droppable.nextSibling)
+                }
+              }
+            }
+
+            // 添加移动事件监听
+            document.addEventListener('mousemove', onMouseMove)
+
+            // 鼠标释放事件
+            document.addEventListener(
+              'mouseup',
+              function onMouseUp() {
+                document.removeEventListener('mousemove', onMouseMove)
+                document.removeEventListener('mouseup', onMouseUp)
+
+                // 放置元素到占位符位置
+                draggedItem.style.position = ''
+                draggedItem.style.left = ''
+                draggedItem.style.top = ''
+                draggedItem.style.width = ''
+                draggedItem.style.zIndex = ''
+                draggedItem.classList.remove('dragging')
+
+                placeholder.parentNode.insertBefore(draggedItem, placeholder)
+                placeholder.remove()
+
+                draggedItem = null
+              },
+              { once: true },
+            )
+          })
+
+          // 阻止默认拖拽行为
+          item.addEventListener('dragstart', e => e.preventDefault())
+        })
+      })
+    </script>
+  </body>
+</html>

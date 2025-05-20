@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        /* 默认亮主题 */
+        --bg-color: #fff;
+        background-color: var(--bg-color);
+      }
+
+      :root.dark {
+        /* 暗主题 */
+        --bg-color: #000;
+      }
+
+      ::view-transition-new(root),
+      ::view-transition-old(root) {
+        /* 关闭默认动画 */
+        animation: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="themeButton">切换主题</button>
+    <script>
+      const themeButton = document.getElementById('themeButton')
+      themeButton.addEventListener('click', e => {
+        // 执行切换主题的操作
+        const transition = document.startViewTransition(() => {
+          // 动画过渡切换主题色
+          document.documentElement.classList.toggle('dark')
+        })
+
+        // document.startViewTransition 的 ready 返回一个 Promise
+        transition.ready.then(() => {
+          // 获取鼠标的坐标
+          const { clientX, clientY } = e
+
+          // 计算最大半径
+          const radius = Math.hypot(
+            Math.max(clientX, innerWidth - clientX),
+            Math.max(clientY, innerHeight - clientY),
+          )
+
+          // 圆形动画扩散开始
+          document.documentElement.animate(
+            {
+              clipPath: [
+                `circle(0% at ${clientX}px ${clientY}px)`,
+                `circle(${radius}px at ${clientX}px ${clientY}px)`,
+              ],
+            },
+            // 设置时间，已经目标伪元素
+            {
+              duration: 500,
+              pseudoElement: '::view-transition-new(root)',
+            },
+          )
+        })
+      })
+    </script>
+  </body>
+</html>
