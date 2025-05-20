@@ -5,7 +5,7 @@
   "author": "ruihuag",
   "license": "MIT",
   "scripts": {
-    "start": "node .conf/index.mjs"
+    "start": "node .conf/pre-commit.mjs"
   },
   "repository": {
     "type": "git",
