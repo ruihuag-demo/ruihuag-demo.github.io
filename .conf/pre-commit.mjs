@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-const ig = ['node_modules', '.conf', '.git', 'bg', '.assets', '.docs', '.husky', '.vscode', 'dev', 'Javascript', 'global']
+const ig = ['node_modules', '.conf', '.git', 'bg', '.assets', '.docs', '.husky', '.vscode', 'dev', 'Javascript', 'global', 'temp']
 
 async function readDirectory(dir) {
   // const db = {}

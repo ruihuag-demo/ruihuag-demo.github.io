@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义拖拽示例</title>
+    <style>
+      .draggable {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        cursor: move;
+        user-select: none;
+        touch-action: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .dragging {
+        opacity: 0.8;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
+      .container {
+        width: 25%;
+        height: 400px;
+        border: 2px dashed #ccc;
+        position: relative;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>自定义拖拽</h2>
+    <div class="container">
+      <div class="draggable" id="draggable1">拖拽我</div>
+      <!-- <div class="draggable" id="draggable2" style="top: 150px; left: 150px; background-color: #e74c3c;">拖拽我</div> -->
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const draggables = document.querySelectorAll('.draggable')
+
+        draggables.forEach(draggable => {
+          // 初始位置
+          let offsetX, offsetY
+          let isDragging = false
+
+          // 鼠标按下事件处理
+          function handleStart(e) {
+            const event = e.type === 'touchstart' ? e.touches[0] : e
+
+            // 计算鼠标在元素内的偏移量
+            const rect = draggable.getBoundingClientRect()
+            offsetX = event.clientX - rect.left
+            offsetY = event.clientY - rect.top
+
+            isDragging = true
+            draggable.classList.add('dragging')
+
+            // 添加移动和结束事件监听
+            if (e.type === 'mousedown') {
+              document.addEventListener('mousemove', handleMove)
+              document.addEventListener('mouseup', handleEnd)
+            }
+          }
+
+          // 移动事件处理
+          function handleMove(e) {
+            if (!isDragging) return
+
+            e.preventDefault()
+            const event = e.type === 'touchmove' ? e.touches[0] : e
+
+            // 计算新位置
+            const container = document.querySelector('.container')
+            const containerRect = container.getBoundingClientRect()
+
+            let left = event.clientX - containerRect.left - offsetX
+            let top = event.clientY - containerRect.top - offsetY
+
+            // 边界检查
+            const maxLeft = containerRect.width - draggable.offsetWidth
+            const maxTop = containerRect.height - draggable.offsetHeight
+
+            left = Math.max(0, Math.min(left, maxLeft))
+            top = Math.max(0, Math.min(top, maxTop))
+
+            // 设置新位置
+            draggable.style.left = `${left}px`
+            draggable.style.top = `${top}px`
+          }
+
+          // 结束拖拽事件处理
+          function handleEnd() {
+            if (!isDragging) return
+
+            isDragging = false
+            draggable.classList.remove('dragging')
+
+            // 移除事件监听
+            document.removeEventListener('mousemove', handleMove)
+            document.removeEventListener('mouseup', handleEnd)
+            document.removeEventListener('touchmove', handleMove)
+            document.removeEventListener('touchend', handleEnd)
+          }
+
+          // 添加事件监听
+          draggable.addEventListener('mousedown', handleStart)
+          draggable.addEventListener('touchstart', e => {
+            handleStart(e)
+            document.addEventListener('touchmove', handleMove, { passive: false })
+            document.addEventListener('touchend', handleEnd)
+          })
+        })
+      })
+    </script>
+  </body>
+</html>
